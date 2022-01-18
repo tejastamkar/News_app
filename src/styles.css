@@ -1,7 +1,12 @@
 .App {
-    font-family: sans-serif;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
-  }
+  font-family: sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+.CardView {
+  width: 100%;
+  margin-top: 40px;
+}
