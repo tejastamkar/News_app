@@ -1,8 +1,8 @@
-import styles from '../Styles/Pages.module.scss'
+import styles from '../Styles/Title.module.scss'
 export default function Title({ Name }) {
     return <div className={styles.title}>
         <hr />
-        <h3 className={styles.name}>{Name}</h3>
+        <p className={styles.name}>{Name}</p>
         <a className={styles.btn} href="">View All</a>
         <hr />
     </div>;

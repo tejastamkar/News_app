@@ -1,27 +1,17 @@
-.title {
-  font-family: Gabriola;
-  .name {
-    font-size: 40px;
-    margin: -10px 0px;
-    margin-left: 30px;
-  }
-  .btn {
-    top: 30px;
-    right: 50px;
-    font-size: 20px;
-    color: black;
-    position: absolute;
-  }
-}
 .TopNews {
   .Main {
-    max-width: 900px;
+    // width: 200px;
     margin: 2px 10px;
-    position: relative;
-    .Image {
-      width: 200px;
-      height: 200px;
-      //   max-height: 30%;
+    // position: relative;
+    .ImageContainer {
+      display: flex;
+      max-width: 90%;
+      object-fit: contain;
+      .Image {
+        max-width: 70%;
+        max-height: 70%;
+      }
+      max-height: 90%;
     }
     .title {
       font-size: 25px;
@@ -30,18 +20,36 @@
     }
     .decs {
       font-size: 15px;
-      margin: 2px 0px 0px 25px;
+      margin: 2px 5px 0px 25px;
       font-weight: 400;
-      max-width: 600px;
+      max-width: 45%;
       font-family: sans-serif;
     }
     .Line {
-      border: 2px solid black;
+      border: 1px solid rgb(53, 53, 53);
       border-radius: 20px;
       height: 500px;
       width: 0px;
       position: absolute;
-      left: 85%;
+      left: 65%;
     }
+  }
+}
+
+.Details {
+  display: flex;
+  margin: -10px 10px;
+  .date {
+    font-size: 20px;
+  }
+  .line {
+    letter-spacing: -3px;
+    font-size: 20px;
+
+    margin-right: 10px;
+  }
+  .src {
+    margin-right: 20%;
+    font-size: 20px;
   }
 }
