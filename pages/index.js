@@ -1,7 +1,7 @@
 import Head from 'next/head'
 import Image from 'next/image'
 import MainTopnews from '../Components/MainTopnews'
-import Title from '../Components/titlename'
+import { Title } from '../Components/TitleandDetails'
 
 export default function Home() {
   return (

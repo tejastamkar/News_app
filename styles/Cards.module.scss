@@ -1,0 +1,31 @@
+.Card {
+  max-width: 300px;
+  padding: 5px;
+  .ImageContainer {
+    max-width: 270px;
+    margin: 0px auto;
+    .Image {
+      max-width: 300px;
+      object-fit: cover;
+    }
+  }
+  // box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.3);
+}
+
+@media only screen and (min-width: 768px) {
+  .all__Cards {
+    margin: 30px auto;
+    display: grid;
+    max-height: 50%;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 10px;
+  }
+}
+@media only screen and (min-width: 1024px) {
+  .all__Cards {
+    margin: 30px auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 10px;
+  }
+}

@@ -1,0 +1,55 @@
+.TopNews {
+  display: flex;
+  .Main {
+    flex: 2;
+    margin: 2px 10px;
+    width: 60%;
+    border-right: 2px black solid;
+    .ImageContainer {
+      margin: 0px auto;
+      width: 90%;
+      height: 450px;
+      .Image {
+        object-fit: cover;
+        margin: 0px auto;
+      }
+    }
+    .titles {
+      font-size: 25px;
+      margin: 0px 0px 0px 5px;
+      font-family: sans-serif;
+    }
+    .decs {
+      font-size: 15px;
+      margin: 2px 5px 0px 25px;
+      font-weight: 400;
+      max-width: 60%;
+      font-family: sans-serif;
+    }
+  }
+  .BigCard {
+    flex: 1;
+    border-radius: 10px;
+    width: 400px;
+    height: fit-content;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.3);
+    .News {
+      margin: 10px auto;
+      padding: 10px;
+    }
+    .ImageContainer {
+      display: flex;
+      width: 90%;
+      height: 150px;
+      margin: 10px auto;
+      .Image {
+        object-fit: contain;
+        margin: 0px auto;
+      }
+    }
+    .heading {
+      font-weight: 400;
+      margin: 0px 20px;
+    }
+  }
+}

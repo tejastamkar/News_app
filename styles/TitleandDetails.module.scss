@@ -1,0 +1,42 @@
+// Css for Title Component
+.Main {
+  width: 100%;
+  margin: 0px auto;
+}
+.title {
+  display: flex;
+  font-family: Gabriola;
+  .name {
+    font-size: 40px;
+    font-weight: 400;
+    margin: -10px 0px;
+    margin-left: 30px;
+  }
+  .btn {
+    font-size: 20px;
+    margin: 10px 50px 10px auto;
+    color: black;
+    // position: absolute;
+  }
+}
+
+// css for details
+.details {
+  display: flex;
+  width: 100%;
+  margin: 10px 0px;
+  .date {
+    flex: 1;
+    font-size: 12px;
+    margin: 0px 5px;
+  }
+  .line {
+    letter-spacing: -3px;
+    font-size: 12px;
+    margin: auto auto auto 10px;
+  }
+  .src {
+    margin: auto 5px auto 7px;
+    font-size: 12px;
+  }
+}
