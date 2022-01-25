@@ -1,0 +1,26 @@
+
+.nav a {
+  color: #333;
+  text-decoration: none;
+  font-size: larger;
+}
+
+.nav {
+  margin: 10px auto 80px;
+  padding: 10px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+   border-bottom: 2px solid #ddd; 
+ }
+.nav a {
+  margin-left: 35px;
+}
+.nav .logo {
+  color: #0070f3;
+  font-weight: 900;
+} 
+ .group  a:hover {
+  text-decoration-line: underline;
+  text-decoration-color: red;
+} 

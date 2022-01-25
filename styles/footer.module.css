@@ -1,0 +1,21 @@
+.footer {
+    left:0;
+    bottom: 0;
+    width: 100%;
+    padding: 10px;
+    position:absolute;
+     margin: 0px auto;
+  }
+
+.footer_Items{
+    display: flex;
+    color: black;
+  
+}
+.footer_logo{ 
+    margin: 10px auto 10px 7px ;
+}
+
+.footer_text { 
+    margin: 10px 7px 10px auto ;
+}
