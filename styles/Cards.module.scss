@@ -1,6 +1,7 @@
 .Card {
   max-width: 300px;
   padding: 5px;
+  margin: 0px auto;
   .ImageContainer {
     max-width: 270px;
     margin: 0px auto;
@@ -25,7 +26,7 @@
   .all__Cards {
     margin: 30px auto;
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(4, 1fr);
     grid-gap: 10px;
   }
 }
