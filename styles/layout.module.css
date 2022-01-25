@@ -6,6 +6,7 @@
  .navBtn a {
     color: #333;
     text-decoration: none;
+    padding-right: 30px;
   } 
   .navBtn  button {
   background: transparent;

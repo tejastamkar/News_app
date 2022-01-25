@@ -56,6 +56,7 @@ export default function Layout({ children }) {
 
 
         {/* responsive bar  */}
+        <div>
             <button className={isOpen === false ?
                 styles.hamburger : styles.hamburger + ' ' + styles.active}
                 onClick={openMenu}
@@ -66,6 +67,7 @@ export default function Layout({ children }) {
                 <span className={styles.bar}></span>
                 <span className={styles.bar}></span>
             </button>
+        </div>
         </nav>
 
         {children}
