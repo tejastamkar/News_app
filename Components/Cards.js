@@ -6,7 +6,7 @@ import { collection, getDocs } from "firebase/firestore";
 import { db } from "../Firebase";
 
 export default function Cards({ Items, data }) {
-  if (Items == "books" && data) {
+  if ((Items == "books" || Items == "Books") && data) {
     return (
       <div className={styles.all__Cards}>
         {data.map((data, index) => (
@@ -15,18 +15,19 @@ export default function Cards({ Items, data }) {
       </div>
     );
   }
-  return data ? (
-    <div className={styles.all__Cards}>
-      {data.map((data, index) => (
-        <Card key={index} data={data} />
-      ))}
-    </div>
-  ) : (
-    <h1>loading..</h1>
-  );
+  if (Items == "News" && data) {
+    return (
+      <div className={styles.all__Cards}>
+        {data.map((data, index) => (
+          <News key={index} data={data} />
+        ))}
+      </div>
+    );
+  }
+  return <h2>No Data found</h2>;
 }
 
-function Card({ data }) {
+function News({ data }) {
   return (
     <div className={styles.Card}>
       <div className={styles.ImageContainer}>

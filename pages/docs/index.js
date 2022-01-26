@@ -1,5 +1,12 @@
-import React from 'react';
+import { useRouter } from "next/router";
+import { useEffect } from "react";
+import { Title } from "../../Components/TitleandDetails";
 
 export default function index() {
-    return <div> this is Docs page</div>;
+  const router = useRouter();
+
+  useEffect(() => {
+    router.push("/");
+  }, []);
+  return <></>;
 }

@@ -1,11 +1,10 @@
-import Cards from "../Components/Cards";
-
+import Temp from "../Components/Temp";
 
 export default function Aboutus() {
-    return (
-        <div>
-            <h1>This is About Page</h1>
-            <Cards />
-        </div>
-    );
+  return (
+    <div>
+      <Temp />
+      <h1>This is About Page</h1>
+    </div>
+  );
 }
