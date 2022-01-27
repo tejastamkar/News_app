@@ -13,16 +13,10 @@ html,body, body * {
 body{
   width: 100%;
 }
-li {
-  list-style: none;
-}
 
  a {
   color: #333;
   text-decoration: none;
-  font-size: larger;
-  /* margin-left: 35px;  */
-  /* margin-left: auto; */
 } 
 button {
 background: transparent;
@@ -39,3 +33,4 @@ button:focus {
 button:focus {
   outline: none;
 }
+

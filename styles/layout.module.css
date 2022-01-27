@@ -1,27 +1,4 @@
 
-.navBtn li {
-    list-style: none;
-  } 
-  
- .navBtn a {
-    color: #333;
-    text-decoration: none;
-    padding-right: 30px;
-  } 
-  .navBtn  button {
-  background: transparent;
-  border: none;
-  cursor: pointer;
-  }
-  
-  .navBtn button:hover,
-  .navBtn button:focus {
-    background:transparent;
-  }
-  
-  .navBtn button:focus {
-    outline: none;
-  }
 .navbar {
     display: flex;
    margin: 10px auto;
@@ -31,14 +8,9 @@
     flex:1;
     margin: 0px auto 0px 5px;
     font-size: 1.5rem;
-    color: #0070f3;
+    color: brown;
     font-weight: 900;
 }
-.navBtn{ 
-    flex: 2;
-    margin: auto auto;
-}
-
 .search{ 
     flex:1 ;
     text-align: end;
@@ -51,7 +23,7 @@
 .bar {
     display: block;
     width: 25px;
-    height: .5px;
+    height:1px;
     margin: 4px auto;
     -webkit-transition:all 0.3s ease-in-out;
     transition: all 0.3s ease-in-out;
@@ -62,20 +34,14 @@
     margin: 10px auto 80px;
   padding: 10px 0;
   display: flex;
-  justify-content:center;
+  justify-content:space-between;
   align-items:center;
-}
-
-.navitem {
-    margin-left: 20px;
-    /* margin: 1.5rem 0; */
-    
 }
 
 .navlink{
     font-size: 1rem;
     font-weight: 100;
-    color: #475569;
+    padding-right: 25px;
     text-transform: uppercase;
 }
 
@@ -84,17 +50,12 @@
     text-decoration-color: red;
 }
 
-/* .navlogo {
-    font-size: 1.5rem;
-    color: #0070f3;
-    font-weight: 900;
-} */
 
 @media only screen and (max-width: 768px) {
     .navmenu {
         position: fixed;
         left: -100%;
-        top: 2rem;
+        top: 0rem;
         flex-direction: column;
         background-color: #fff;
         width: 100%;
@@ -109,7 +70,10 @@
         left: 0;
     }
 
-
+    .navlink{
+        padding-top: 50px;
+        color: darkmagenta;
+    }
 
 
 
