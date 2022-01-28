@@ -4,9 +4,11 @@ import styles from "../styles/Cards.module.scss";
 import Image from "next/image";
 import { collection, getDocs } from "firebase/firestore";
 import { db } from "../Firebase";
+import Link from "next/link";
 
 export default function Cards({ Items, data }) {
-  if ((Items == "books" || Items == "Books") && data) {
+  const Name = Items.toString().toLowerCase();
+  if (Name == "books" && data) {
     return (
       <div className={styles.all__Cards}>
         {data.map((data, index) => (
@@ -15,7 +17,16 @@ export default function Cards({ Items, data }) {
       </div>
     );
   }
-  if (Items == "News" && data) {
+  if (Name == "magazine" && data) {
+    return (
+      <div className={styles.all__Cards}>
+        {data.map((data, index) => (
+          <Books key={index} data={data} />
+        ))}
+      </div>
+    );
+  }
+  if (Name == "news" && data) {
     return (
       <div className={styles.all__Cards}>
         {data.map((data, index) => (
@@ -29,35 +40,39 @@ export default function Cards({ Items, data }) {
 
 function News({ data }) {
   return (
-    <div className={styles.Card}>
-      <div className={styles.ImageContainer}>
-        <Image
-          className={styles.Image}
-          src={data.url}
-          width={1000}
-          height={700}
-          alt="newImage"
-        />
-        <Details />
-      </div>
-      <p className={styles.Tiles}>{data.name}</p>
-    </div>
+    <Link href={`/docs/news/${data.id}`}>
+      <a className={styles.Card}>
+        <div className={styles.ImageContainer}>
+          <Image
+            className={styles.Image}
+            src={data.url}
+            width={1000}
+            height={700}
+            alt="newImage"
+          />
+          <Details />
+        </div>
+        <p className={styles.Tiles}>{data.name}</p>
+      </a>
+    </Link>
   );
 }
 function Books({ data }) {
   return (
-    <div className={styles.Card}>
-      <div className={styles.ImageContainer}>
-        <Image
-          className={styles.Image}
-          src={data.url}
-          width={700}
-          height={1000}
-          alt="newImage"
-        />
-        <Details />
-      </div>
-      <p className={styles.Tiles}>{data.name}</p>
-    </div>
+    <Link href={`/docs/books/${data.id}`}>
+      <a className={styles.Card}>
+        <div className={styles.ImageContainer}>
+          <Image
+            className={styles.Image}
+            src={data.url}
+            width={700}
+            height={1000}
+            alt="newImage"
+          />
+          <Details />
+        </div>
+        <p className={styles.Tiles}>{data.name}</p>
+      </a>
+    </Link>
   );
 }

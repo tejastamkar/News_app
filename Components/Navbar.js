@@ -1,12 +1,12 @@
 import Link from "next/link";
 import { useState } from "react";
 import styles from "../styles/NavBar.module.scss";
+
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const openMenu = () => setIsOpen(!isOpen);
   return (
     <nav className={styles.navbar}>
-      {/* logo here */}
       <div className={styles.logo}>
         <Link href="/">
           <a className={styles.logo}>Logo</a>
@@ -14,17 +14,16 @@ export default function Navbar() {
       </div>
 
       {/* navbar elements */}
-      <div className={styles.navBtn}>
-        <div
-          className={
-            isOpen === false
-              ? styles.navmenu
-              : styles.navmenu + " " + styles.active
-          }
-        >
+      <div
+        className={
+          (styles.navBtn,
+          isOpen === false
+            ? styles.navmenu
+            : styles.navmenu + " " + styles.active)
+        }
+      >
+        <Link href="/" className={styles.navitem}>
           <a
-            href="/"
-            className={styles.navitem}
             className={
               isOpen === false
                 ? styles.navlink
@@ -34,10 +33,9 @@ export default function Navbar() {
           >
             Home
           </a>
-
+        </Link>
+        <Link href="/docs/News" className={styles.navitem}>
           <a
-            href="/topnews"
-            className={styles.navitem}
             className={
               isOpen === false
                 ? styles.navlink
@@ -47,10 +45,10 @@ export default function Navbar() {
           >
             Top News
           </a>
+        </Link>
 
+        <Link href="/docs/Magazine" className={styles.navitem}>
           <a
-            href="/magazine"
-            className={styles.navitem}
             className={
               isOpen === false
                 ? styles.navlink
@@ -60,10 +58,10 @@ export default function Navbar() {
           >
             Magazine
           </a>
+        </Link>
 
+        <Link href="/docs/Podcast" className={styles.navitem}>
           <a
-            href="/magazine"
-            className={styles.navitem}
             className={
               isOpen === false
                 ? styles.navlink
@@ -73,10 +71,9 @@ export default function Navbar() {
           >
             Podcast
           </a>
-
+        </Link>
+        <Link href="/Aboutus" className={styles.navitem}>
           <a
-            href="/magazine"
-            className={styles.navitem}
             className={
               isOpen === false
                 ? styles.navlink
@@ -86,7 +83,7 @@ export default function Navbar() {
           >
             About Us
           </a>
-        </div>
+        </Link>
       </div>
 
       {/* search box */}
@@ -94,23 +91,21 @@ export default function Navbar() {
         <h2>Search</h2>
       </div>
 
-      {/* responsive bar  */}
-      <div>
-        <button
-          className={
-            isOpen === false
-              ? styles.hamburger
-              : styles.hamburger + " " + styles.active
-          }
-          onClick={openMenu}
-        >
-          <div className={styles.bar}></div>
-          <div className={styles.bar}></div>
-          <div className={styles.bar}></div>
-          <div className={styles.bar}></div>
-          <div className={styles.bar}></div>
-        </button>
-      </div>
+      {/* responsive navbar */}
+      <button
+        className={
+          isOpen === false
+            ? styles.hamburger
+            : styles.hamburger + " " + styles.active
+        }
+        onClick={openMenu}
+      >
+        <span className={styles.bar}></span>
+        <span className={styles.bar}></span>
+        <span className={styles.bar}></span>
+        <span className={styles.bar}></span>
+        <span className={styles.bar}></span>
+      </button>
     </nav>
   );
 }

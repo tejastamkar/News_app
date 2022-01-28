@@ -1,47 +1,20 @@
-.navBtn li {
-  list-style: none;
-}
-
-.navBtn a {
-  color: #333;
-  text-decoration: none;
-  padding-right: 30px;
-}
-.navBtn button {
-  background: transparent;
-  border: none;
-  cursor: pointer;
-}
-
-.navBtn button:hover,
-.navBtn button:focus {
-  background: transparent;
-}
-
-.navBtn button:focus {
-  outline: none;
-}
 .navbar {
   display: flex;
-  margin: 10px auto;
+  margin: 5px auto;
   width: 100%;
 }
 .logo {
   flex: 1;
-  margin: 0px auto 0px 5px;
-  //   font-size: 1.5rem;
-  color: #0070f3;
+  margin: auto auto auto 5px;
+  font-size: 30px;
+  color: brown;
+  text-decoration: none;
   font-weight: 900;
 }
-.navBtn {
-  flex: 2;
-  margin: auto auto;
-}
-
 .search {
   flex: 1;
   text-align: end;
-  margin: 0px 7px;
+  margin: 0px auto 0px 7px;
 }
 .hamburger {
   display: none;
@@ -50,7 +23,7 @@
 .bar {
   display: block;
   width: 25px;
-  height: 0.5px;
+  height: 1px;
   margin: 4px auto;
   -webkit-transition: all 0.3s ease-in-out;
   transition: all 0.3s ease-in-out;
@@ -58,23 +31,20 @@
 }
 
 .navmenu {
-  margin: 10px auto 80px;
-  padding: 10px 0;
+  // margin: 10px auto 80px;
+  // padding: 10px 0;
   display: flex;
-  justify-content: center;
+  // justify-content: space-between;
   align-items: center;
 }
 
-.navitem {
-  margin-left: 20px;
-  /* margin: 1.5rem 0; */
-}
-
 .navlink {
-  font-size: 1rem;
+  font-size: 15px;
   font-weight: 100;
-  color: #475569;
-  text-transform: uppercase;
+  text-decoration: none;
+  color: black;
+  margin: 0px 15px;
+  // text-transform: uppercase;
 }
 
 .navlink:hover {
@@ -82,17 +52,11 @@
   text-decoration-color: red;
 }
 
-/* .navlogo {
-    font-size: 1.5rem;
-    color: #0070f3;
-    font-weight: 900;
-} */
-
 @media only screen and (max-width: 768px) {
   .navmenu {
     position: fixed;
     left: -100%;
-    top: 2rem;
+    top: 0px;
     flex-direction: column;
     background-color: #fff;
     width: 100%;
@@ -104,6 +68,11 @@
 
   .navmenu.active {
     left: 0;
+  }
+
+  .navlink {
+    padding-top: 50px;
+    color: darkmagenta;
   }
 
   .hamburger {
