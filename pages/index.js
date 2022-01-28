@@ -19,10 +19,6 @@ export default function Home({ News, Books }) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main className={styles.main}>
-        <h1 className={styles.title}>Our News App Home Page</h1>
-      </main>
-
       <Navbar />
       <Title Name={"Top News"} />
       <MainTopnews data={MainTopdata} />
