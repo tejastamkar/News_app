@@ -1,5 +1,5 @@
 import Link from "next/link";
-import styles from "../Styles/TitleandDetails.module.scss";
+import styles from "../styles/TitleandDetails.module.scss";
 //Function for Titles
 export function Title({ Name }) {
   if (Name == "Top News") {
