@@ -15,19 +15,19 @@
   // box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.3);
 }
 
-.Card:hover {
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.3);
-  transition: 1s;
-
-  border-radius: 10px;
-}
-@media only screen and (min-width: 768px) {
+@media only screen and (max-width: 1024px) {
   .all__Cards {
     margin: 30px auto;
     display: grid;
     max-height: 50%;
     grid-template-columns: repeat(2, 1fr);
     grid-gap: 10px;
+  }
+  .Card:hover {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.3);
+    transition: 1s;
+
+    border-radius: 10px;
   }
 }
 @media only screen and (min-width: 1024px) {
@@ -37,4 +37,41 @@
     grid-template-columns: repeat(4, 1fr);
     grid-gap: 10px;
   }
+  .Card:hover {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.3);
+    transition: 1s;
+
+    border-radius: 10px;
+  }
 }
+
+@media only screen and (max-width: 300px) {
+  .all__Cards {
+    margin: 30px auto;
+    display: grid;
+    max-height: 50%;
+    grid-template-columns: repeat(1, 1fr);
+    grid-gap: 10px;
+  }
+  .Card:hover {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.3);
+    transition: 1s;
+
+    border-radius: 10px;
+  }
+}
+
+// @media only screen and (min-width: 1920px) {
+//   .all__Cards {
+//     margin: 30px auto;
+//     display: grid;
+//     grid-template-columns: repeat(5, 1fr);
+//     grid-gap: 10px;
+//   }
+//   .Card:hover {
+//     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.3);
+//     transition: 1s;
+
+//     border-radius: 10px;
+//   }
+// }

@@ -47,27 +47,28 @@
   // text-transform: uppercase;
 }
 
-.navlink:hover {
-  text-decoration-line: underline;
-  text-decoration-color: red;
+.act {
+  // color: red;
+  font-weight: 700;
+  // text-decoration: solid;
 }
 
 @media only screen and (max-width: 768px) {
   .navmenu {
     position: fixed;
-    left: -100%;
-    top: 0px;
+    left: 0px;
+    top: -100%;
     flex-direction: column;
     background-color: #fff;
     width: 100%;
     border-radius: 10px;
     text-align: center;
-    transition: 0.3s;
+    transition: 0.5s;
     box-shadow: 0 10px 27px rgba(0, 0, 0, 0.05);
   }
 
   .navmenu.active {
-    left: 0;
+    top: 0;
   }
 
   .navlink {

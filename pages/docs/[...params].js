@@ -6,16 +6,16 @@ import { db } from "../../Firebase";
 import { useEffect, useState } from "react";
 import Navbar from "../../Components/Navbar";
 import Footer from "../../Components/Footer";
-async function getNews({ News, setMyLoader, temp }) {
-  // News = [];
+async function getDataBase({ Data, setMyLoader, temp }) {
+  // Data = [];
   await getDocs(collection(db, temp)).then(async (snapshort) => {
     snapshort.docs.forEach((doc) => {
-      News.push({ ...doc.data(), id: doc.id });
+      Data.push({ ...doc.data(), id: doc.id });
       setMyLoader(false);
     });
   });
 
-  return { News, setMyLoader };
+  return { Data, setMyLoader };
 }
 
 function getDB(props) {
@@ -61,6 +61,14 @@ function getName(props) {
     case "Magazines":
       props = "Magazine";
       break;
+    case "Podcast":
+    case "podcast":
+    case "Podcasts":
+      props = "Podcast";
+      break;
+    default:
+      props = "None";
+      break;
   }
 
   return props;
@@ -69,28 +77,30 @@ function getName(props) {
 export default function FullView() {
   const router = useRouter();
   const [myloader, setMyLoader] = useState(false);
-  var [News, setNews] = useState([]);
+  var [Data, setData] = useState([]);
+  var [CardData, setCardData] = useState([]);
   const { params = [] } = router.query;
   const Name = getName(params[0]);
   useEffect(() => {
     async function getData() {
       if (params !== undefined) {
-        setNews((News = []));
+        setData((Data = []));
         const temp = await getDB(params[0]);
-        const data = await getNews({ News, setMyLoader, temp });
-        setNews(data.News);
+        const data = await getDataBase({ Data, setMyLoader, temp });
+
+        setData(data.Data);
         setMyLoader(data.setMyLoader);
         setMyLoader(true);
       }
     }
     getData();
   }, [params]);
-  if (params.length == 1) {
+  if (params.length == 1 && Name !== "None") {
     return myloader ? (
       <>
         <Navbar />
         <Title Name={Name} />
-        <Cards Items={params} data={News} />
+        <Cards Items={params} data={Data} />
         <Footer />
       </>
     ) : (

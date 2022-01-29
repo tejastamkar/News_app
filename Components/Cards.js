@@ -2,8 +2,6 @@ import { Details, Title } from "./TitleandDetails";
 import { useState, useEffect } from "react";
 import styles from "../styles/Cards.module.scss";
 import Image from "next/image";
-import { collection, getDocs } from "firebase/firestore";
-import { db } from "../Firebase";
 import Link from "next/link";
 
 export default function Cards({ Items, data }) {
