@@ -69,10 +69,10 @@ export default function Layout({ children }) {
                 onClick={openMenu}
             >
                 <span className={styles.bar}></span>
-                <span className={styles.bar}></span>
-                <span className={styles.bar}></span>
-                <span className={styles.bar}></span>
-                <span className={styles.bar}></span>
+                <span className={styles.bar1}></span>
+                <span className={styles.bar2}></span>
+                {/* <span className={styles.bar}></span> */}
+                {/* <span className={styles.bar}></span> */}
             </button>
         </nav>
         {/* </header> */}

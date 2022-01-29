@@ -22,8 +22,28 @@
 
 .bar {
     display: block;
-    width: 25px;
-    height:1px;
+    width: 30px;
+    height: 2px;
+    margin: 4px auto;
+    -webkit-transition:all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+    background-color: black;
+}
+.bar1 {
+    display: block;
+    width: 20px;
+    height: 2px;
+    margin-left: 15px ;
+    /* margin: 4px auto; */
+    -webkit-transition:all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+    background-color: black;
+}
+
+.bar2 {
+    display: block;
+    width: 30px;
+    height: 2px;
     margin: 4px auto;
     -webkit-transition:all 0.3s ease-in-out;
     transition: all 0.3s ease-in-out;
@@ -53,21 +73,20 @@
 
 @media only screen and (max-width: 768px) {
     .navmenu {
-        position: fixed;
-        left: -100%;
-        top: 0rem;
-        flex-direction: column;
-        background-color: #fff;
-        width: 100%;
-        border-radius: 10px;
-        text-align: center;
-        transition: 0.3s;
-        box-shadow:
-            0 10px 27px rgba(0, 0, 0, 0.05);
+            position: fixed;
+            left: 0px;
+            top: -100%;
+            flex-direction: column;
+            background-color: #fff;
+            width: 100%;
+            border-radius: 10px;
+            text-align: center;
+            transition: 0.5s;
+            box-shadow: 0 10px 27px rgba(0, 0, 0, 0.05);
     }
 
     .navmenu.active {
-        left: 0;
+         top: 0; 
     }
 
     .navlink{
@@ -80,17 +99,19 @@
 
 
     .hamburger {
-        display: block;
+        display:block;
         cursor: pointer;
+
     }
-    .hamburger.active .bar:nth-child(2) {
+    .hamburger.active .bar1:nth-child(2) {
         opacity: 0;
     }
+    
     .hamburger.active .bar:nth-child(1) {
          -webkit-transform: translateY(8px) rotate(45deg);
         transform: translateY(8px) rotate(45deg); 
     }
-    .hamburger.active .bar:nth-child(3) {
+    .hamburger.active .bar2:nth-child(3) {
         -webkit-transform: translateY(-8px) rotate(-45deg);
         transform: translateY(-8px) rotate(-45deg);
     }
@@ -101,4 +122,3 @@
         opacity: 0;
     }
 }
-
