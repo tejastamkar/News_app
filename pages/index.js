@@ -9,7 +9,7 @@ import Footer from "../Components/Footer";
 
 export default function Home({ News, Books }) {
   const MainTopdata = News.slice(0, 3);
-  const NewsItems = News.slice(1, 5);
+  const NewsItems = News.slice(1);
   Books = Books.slice(0, 4);
   return (
     <div>

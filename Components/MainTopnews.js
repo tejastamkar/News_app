@@ -15,6 +15,7 @@ export default function MainTopnews({ data }) {
               width={"1000"}
               height={"500"}
               layout="intrinsic"
+              object-fit="cover"
               src={data[0].url}
             />
             <Details />

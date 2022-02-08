@@ -43,7 +43,7 @@ export default function Navbar() {
             }
             onClick={openMenu}
           >
-            Top News
+            News
           </a>
         </Link>
 
