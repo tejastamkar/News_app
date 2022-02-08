@@ -69,11 +69,13 @@
 
   .navmenu.active {
     top: 0;
+    position: fixed;
   }
 
   .navlink {
     padding-top: 50px;
-    color: darkmagenta;
+    color: rgb(0, 0, 0);
+    font-weight: 500;
   }
 
   .hamburger {

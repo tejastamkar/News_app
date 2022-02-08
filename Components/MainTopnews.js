@@ -3,6 +3,7 @@ import wall from "../assets/Wall.jpg";
 import styles from "../styles/Home.module.scss";
 import { Details } from "./TitleandDetails";
 import Link from "next/link";
+
 export default function MainTopnews({ data }) {
   return (
     <div className={styles.TopNews}>

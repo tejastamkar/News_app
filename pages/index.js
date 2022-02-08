@@ -19,15 +19,17 @@ export default function Home({ News, Books }) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Navbar />
-      <Title Name={"Top News"} />
-      <MainTopnews data={MainTopdata} />
-      <Title Name={"News"} />
-      <Cards data={NewsItems} Items={"News"} />
-      <Title Name={"Magazine"} />
-      <Cards data={Books} Items={"Magazine"} />
-      <Title Name={"Books"} />
-      <Cards data={Books} Items={"books"} />
-      <Footer />
+      <div id="Top">
+        <Title Name={"Top News"} />
+        <MainTopnews data={MainTopdata} />
+        <Title Name={"News"} />
+        <Cards data={NewsItems} Items={"News"} />
+        <Title Name={"Magazine"} />
+        <Cards data={Books} Items={"Magazine"} />
+        <Title Name={"Books"} />
+        <Cards data={Books} Items={"books"} />
+        <Footer />
+      </div>
     </div>
   );
 }

@@ -1,10 +1,17 @@
 import Link from "next/link";
-import { useState } from "react";
 import styles from "../styles/NavBar.module.scss";
-
+import { useState, useEffect } from "react";
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const openMenu = () => setIsOpen(!isOpen);
+  useEffect(() => {
+    if (isOpen) {
+      document.getElementById("Top").style.display = "none";
+    } else {
+      document.getElementById("Top").style.display = "block";
+    }
+  }, [isOpen]);
+
   return (
     <nav className={styles.navbar}>
       <div className={styles.logo}>

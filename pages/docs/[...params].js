@@ -86,9 +86,11 @@ export default function FullView() {
     return myloader ? (
       <>
         <Navbar />
-        <Title Name={Name} />
-        <Cards Items={params} data={Data} />
-        <Footer />
+        <div id="Top">
+          <Title Name={Name} />
+          <Cards Items={params} data={Data} />
+          <Footer />
+        </div>
       </>
     ) : (
       <>loading..</>
