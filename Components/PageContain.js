@@ -5,22 +5,14 @@ import Footer from "./Footer";
 import { useRouter } from "next/router";
 import BackBtn from "../assets/BackBtn.png";
 import { useEffect, useState } from "react";
-
+import { MdOutlineArrowBackIosNew } from "react-icons/md";
 export default function PageContain({ Data, name }) {
   const router = useRouter();
 
   return name === "News" ? (
     <div>
       <button className={styles.backbtn} onClick={() => router.back()}>
-        <div className={styles.backbtnimg}>
-          <Image
-            width={"20"}
-            height={"30"}
-            layout="intrinsic"
-            src={BackBtn}
-            alt="BackBtn"
-          />
-        </div>
+        <MdOutlineArrowBackIosNew className={styles.backbtnimg} />
       </button>
       <div className={styles.Main}>
         <div className={styles.ImgContainer}>
@@ -78,15 +70,7 @@ export default function PageContain({ Data, name }) {
   ) : (
     <div>
       <button className={styles.backbtn} onClick={() => router.back()}>
-        <div className={styles.backbtnimg}>
-          <Image
-            width={"20"}
-            height={"30"}
-            layout="intrinsic"
-            src={BackBtn}
-            alt="BackBtn"
-          />
-        </div>
+        <MdOutlineArrowBackIosNew className={styles.backbtnimg} />
       </button>
       <div className={styles.Main}>
         <div className={styles.ImgContainer}>
