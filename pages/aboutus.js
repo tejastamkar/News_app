@@ -8,9 +8,6 @@ export default function Aboutus() {
       <Navbar />
       <div id="Top">
         <h1>This is About Page</h1>
-        <PodCast />
-        <h2>this is other one</h2>
-        <PodCast />
       </div>
     </div>
   );

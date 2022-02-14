@@ -80,7 +80,7 @@ export default function Navbar() {
             Podcast
           </a>
         </Link>
-        <Link href="/Aboutus" className={styles.navitem}>
+        <Link href="/aboutus" className={styles.navitem}>
           <a
             className={
               isOpen === false

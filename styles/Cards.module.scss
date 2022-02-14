@@ -23,6 +23,14 @@
     grid-template-columns: repeat(2, 1fr);
     grid-gap: 10px;
   }
+  .all__PodCards {
+    margin: 30px auto;
+    width: 100%;
+    display: grid;
+    max-height: 50%;
+    grid-template-columns: repeat(1, 1fr);
+    grid-gap: 10px;
+  }
   .Card:hover {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.3);
     transition: 1s;
@@ -37,6 +45,12 @@
     grid-template-columns: repeat(4, 1fr);
     grid-gap: 10px;
   }
+  .all__PodCards {
+    margin: 30px auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 10px;
+  }
   .Card:hover {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.3);
     transition: 1s;
@@ -47,6 +61,13 @@
 
 @media only screen and (max-width: 300px) {
   .all__Cards {
+    margin: 30px auto;
+    display: grid;
+    max-height: 50%;
+    grid-template-columns: repeat(1, 1fr);
+    grid-gap: 10px;
+  }
+  .all__PodCards {
     margin: 30px auto;
     display: grid;
     max-height: 50%;

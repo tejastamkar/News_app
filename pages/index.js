@@ -6,10 +6,11 @@ import { collection, getDocs } from "firebase/firestore";
 import { db } from "../Firebase";
 import Navbar from "../Components/Navbar";
 import Footer from "../Components/Footer";
-
+import { PodCastData } from "../assets/PodData";
 export default function Home({ News, Books }) {
   const MainTopdata = News.slice(0, 3);
   const NewsItems = News.slice(1);
+  const PodCastItems = PodCastData.slice(0, 3);
   Books = Books.slice(0, 4);
   return (
     <div>
@@ -28,6 +29,8 @@ export default function Home({ News, Books }) {
         <Cards data={Books} Items={"Magazine"} />
         <Title Name={"Books"} />
         <Cards data={Books} Items={"books"} />
+        <Title Name={"PodCast"} />
+        <Cards data={PodCastItems} Items={"podcast"} />
         <Footer />
       </div>
     </div>

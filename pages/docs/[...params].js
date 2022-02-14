@@ -7,6 +7,7 @@ import PageContain from "../../Components/PageContain";
 import { useEffect, useState } from "react";
 import Navbar from "../../Components/Navbar";
 import Footer from "../../Components/Footer";
+
 async function getDataBase({ Data, setMyLoader, temp }) {
   // Data = [];
   await getDocs(collection(db, temp)).then(async (snapshort) => {

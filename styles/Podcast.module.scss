@@ -1,12 +1,144 @@
 .audioPlayer {
-  --primary: #feffd2;
-  --secondary: #cca700;
-
+  --primary: #ffd2f8;
+  --secondary: #a000c0;
+  justify-content: center;
   align-items: center;
+  margin: auto auto;
   display: flex;
-  width: 700px;
+  flex-direction: row;
+  width: 80%;
+  .Title {
+    font-size: 40px;
+    margin: 0px 0px 20% 0px;
+    text-align: left;
+  }
+  .audio {
+    flex: 1;
+    margin-top: 20px;
+    margin-left: 50px;
+    align-items: center;
+  }
+  .ImageContainer {
+    flex: 1;
+    max-width: 400px;
+    margin: 0px auto;
+    .Image {
+      max-width: 300px;
+      object-fit: cover;
+    }
+  }
+}
+.MircoaudioPlayer {
+  --primary: #ffd2f8;
+  --secondary: #a000c0;
+  // background-color: red;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.3);
+  justify-content: center;
+  align-items: center;
+  margin: auto auto;
+  display: flex;
+  max-width: 600px;
+  max-height: 700px;
+  flex-direction: row;
+
+  .ImageContainer {
+    flex: 1;
+    max-width: 200px;
+    margin: 10px 20px;
+    .Image {
+      max-width: 300px;
+      object-fit: cover;
+    }
+  }
+  .Title {
+    font-size: 20px;
+    margin: 10px 0px 10px 20px;
+    text-align: left;
+  }
+  .playerSlider {
+    margin: 0px 20px;
+    margin-bottom: 30px;
+  }
+  .audio {
+    flex: 1;
+    align-items: center;
+  }
+  .play_pause,
+  .forward_backward {
+    margin: -20px 5px;
+  }
+}
+.MiniaudioPlayer {
+  --primary: #ffd2f8;
+  --secondary: #a000c0;
+  // background-color: red;
+  border-radius: 5px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.3);
+  justify-content: center;
+  align-items: center;
+  margin: 10px;
+  display: flex;
+  max-width: 500px;
+  max-height: 200px;
+  flex-direction: row;
+  // width: 20%;
+
+  .playerSlider {
+    display: flex;
+    margin-left: -30px;
+    justify-content: center;
+    flex-direction: row;
+    // width: 100%;
+    align-items: center;
+  }
+  .Title {
+    font-size: 20px;
+    margin: 0px 0px 10px -20px;
+    text-align: left;
+  }
+  .audio {
+    flex: 1;
+    align-items: center;
+  }
+  .play_pause {
+    background: var(--primary);
+    border: none;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    font-size: 17px;
+    color: var(--secondary);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .ImageContainer {
+    flex: 1;
+    max-width: 300px;
+    margin: 2px 2px;
+    .Image {
+      margin: auto auto;
+      max-width: 400px;
+      object-fit: cover;
+    }
+  }
 }
 
+.playerBtn {
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  margin: 50px 0px 20% 0px;
+}
+
+.playerSlider {
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  // width: 100%;
+  align-items: center;
+}
 .forward_backward {
   background: none;
   border: none;
@@ -44,6 +176,7 @@
 .duration {
   font-family: monospace;
   font-size: 16px;
+  // flex: 1;
   margin: 0px 20px;
 }
 
