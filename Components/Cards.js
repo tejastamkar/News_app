@@ -1,10 +1,9 @@
 import { Details, Title } from "./TitleandDetails";
-import { useState, useEffect } from "react";
+// import { useState, useEffect } from "react";
 import styles from "../styles/Cards.module.scss";
 import Image from "next/image";
-import { collection, getDocs } from "firebase/firestore";
-import { db } from "../Firebase";
 import Link from "next/link";
+import PodCast from "./Pod";
 
 export default function Cards({ Items, data }) {
   const Name = Items.toString().toLowerCase();
@@ -31,6 +30,16 @@ export default function Cards({ Items, data }) {
       <div className={styles.all__Cards}>
         {data.map((data, index) => (
           <News key={index} data={data} />
+        ))}
+      </div>
+    );
+  }
+  if (Name == "podcast" && data) {
+    console.log(data[1].Data);
+    return (
+      <div className={styles.all__PodCards}>
+        {data.map((data, index) => (
+          <PodCast key={index} Data={data} />
         ))}
       </div>
     );

@@ -3,108 +3,102 @@ import { useRouter } from "next/router";
 import Cards from "../../Components/Cards";
 import { collection, getDocs } from "firebase/firestore";
 import { db } from "../../Firebase";
+import PageContain from "../../Components/PageContain";
 import { useEffect, useState } from "react";
 import Navbar from "../../Components/Navbar";
 import Footer from "../../Components/Footer";
-async function getNews({ News, setMyLoader, temp }) {
-  // News = [];
+
+async function getDataBase({ Data, setMyLoader, temp }) {
+  // Data = [];
   await getDocs(collection(db, temp)).then(async (snapshort) => {
     snapshort.docs.forEach((doc) => {
-      News.push({ ...doc.data(), id: doc.id });
+      Data.push({ ...doc.data(), id: doc.id });
       setMyLoader(false);
     });
   });
 
-  return { News, setMyLoader };
+  return { Data, setMyLoader };
 }
 
 function getDB(props) {
+  let Name;
+  let Dbname;
   switch (props) {
     case "books":
     case "Books":
     case "Book":
     case "book":
-      props = "book testing";
+      Name = "Books";
+      Dbname = "book testing";
       break;
     case "news":
     case "News":
     case "new":
-      props = "testing";
+      Name = "News";
+      Dbname = "testing";
       break;
     case "magazine":
     case "Magazine":
-      props = "book testing";
+      Name = "Magazine";
+      Dbname = "book testing";
+      break;
+    case "Podcast":
+    case "podcast":
+    case "Podcasts":
+      Name = "Podcast";
+      Dbname = "book testing";
       break;
     default:
-      props = "Tmep";
+      Dbname = "Tmep";
       break;
   }
 
-  return props;
-}
-
-function getName(props) {
-  switch (props) {
-    case "books":
-    case "Books":
-    case "Book":
-    case "book":
-      props = "Books";
-      break;
-    case "news":
-    case "News":
-    case "new":
-      props = "News";
-      break;
-    case "magazine":
-    case "Magazine":
-    case "Magazines":
-      props = "Magazine";
-      break;
-  }
-
-  return props;
+  return [Name, Dbname];
 }
 
 export default function FullView() {
   const router = useRouter();
   const [myloader, setMyLoader] = useState(false);
-  var [News, setNews] = useState([]);
+  var [Data, setData] = useState([]);
+  var [CardData, setCardData] = useState([]);
   const { params = [] } = router.query;
-  const Name = getName(params[0]);
+  let [Name, temp] = getDB(params[0]);
   useEffect(() => {
     async function getData() {
       if (params !== undefined) {
-        setNews((News = []));
-        const temp = await getDB(params[0]);
-        const data = await getNews({ News, setMyLoader, temp });
-        setNews(data.News);
+        setData((Data = []));
+        const data = await getDataBase({ Data, setMyLoader, temp });
+        setData(data.Data);
         setMyLoader(data.setMyLoader);
         setMyLoader(true);
+
+        if (params[1] != undefined) {
+          setCardData(
+            Data.filter((data) => {
+              return data.id === params[1];
+            })
+          );
+        }
       }
     }
     getData();
   }, [params]);
-  if (params.length == 1) {
+  if (params.length == 1 && Name !== "None") {
     return myloader ? (
       <>
         <Navbar />
-        <Title Name={Name} />
-        <Cards Items={params} data={News} />
-        <Footer />
+        <div id="Top">
+          <Title Name={Name} />
+          <Cards Items={params} data={Data} />
+          <Footer />
+        </div>
       </>
     ) : (
       <>loading..</>
     );
   }
-  if (params.length == 2) {
-    return myloader ? (
-      <>
-        <h3>Display Card Data</h3>
-      </>
-    ) : (
-      <>loading..</>
-    );
+  if (params.length == 2 && CardData.length !== 0) {
+    return <PageContain Data={CardData} name={Name} />;
   }
   return <>loading..</>;
 }

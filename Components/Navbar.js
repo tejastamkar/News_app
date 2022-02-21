@@ -1,10 +1,18 @@
 import Link from "next/link";
-import { useState } from "react";
 import styles from "../styles/NavBar.module.scss";
-
+import { useState, useEffect } from "react";
+import { BiSearch } from "react-icons/bi";
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const openMenu = () => setIsOpen(!isOpen);
+  useEffect(() => {
+    if (isOpen) {
+      document.getElementById("Top").style.display = "none";
+    } else {
+      document.getElementById("Top").style.display = "block";
+    }
+  }, [isOpen]);
+
   return (
     <nav className={styles.navbar}>
       <div className={styles.logo}>
@@ -43,7 +51,7 @@ export default function Navbar() {
             }
             onClick={openMenu}
           >
-            Top News
+            News
           </a>
         </Link>
 
@@ -72,7 +80,7 @@ export default function Navbar() {
             Podcast
           </a>
         </Link>
-        <Link href="/Aboutus" className={styles.navitem}>
+        <Link href="/aboutus" className={styles.navitem}>
           <a
             className={
               isOpen === false
@@ -87,8 +95,10 @@ export default function Navbar() {
       </div>
 
       {/* search box */}
-      <div className={styles.search}>
-        <h2>Search</h2>
+      <div style={{ flex: 1 }}>
+        <div className={styles.search}>
+          <BiSearch className={styles.searchicon} />
+        </div>
       </div>
 
       {/* responsive navbar */}
@@ -101,9 +111,7 @@ export default function Navbar() {
         onClick={openMenu}
       >
         <span className={styles.bar}></span>
-        <span className={styles.bar}></span>
-        <span className={styles.bar}></span>
-        <span className={styles.bar}></span>
+        <span className={styles.bar_short}></span>
         <span className={styles.bar}></span>
       </button>
     </nav>
