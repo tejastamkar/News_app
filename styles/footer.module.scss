@@ -1,0 +1,19 @@
+.footer {
+  width: 100%;
+  position: absolute;
+  bottom: 0px;
+  left: 0px;
+  margin: 2px auto;
+}
+
+.footer_Items {
+  display: flex;
+  color: black;
+}
+.footer_logo {
+  margin: 5px auto 5px 7px;
+}
+
+.footer_text {
+  margin: 5px 7px 5px auto;
+}

@@ -1,0 +1,102 @@
+.card {
+  margin: 2px auto;
+  text-align: center;
+  width: 100%;
+}
+.input {
+  margin: 20px auto;
+  justify-content: left;
+  input {
+    margin: 5px 0px;
+  }
+}
+.selbtn {
+  text-align: center;
+  background-color: rgb(226, 226, 226);
+  border: none;
+  width: fit-content;
+  height: 30px;
+  border-radius: 10px;
+  padding: 10px;
+  margin: 5px 10px;
+}
+.selbtn:hover {
+  color: white;
+  background-color: black;
+}
+.card img {
+  border-style: none;
+  object-fit: contain;
+  height: 250px;
+  width: 250px;
+}
+.card .Input {
+  font-size: 15px;
+  border-radius: 4px;
+  height: 24px;
+  box-shadow: 1px 2px 5px rgba(53, 53, 53, 0.671);
+  border: 0px none;
+  box-shadow: 5px black;
+}
+.btn {
+  display: flex;
+  margin-left: 25%;
+  flex-flow: row;
+  button {
+    text-align: center;
+    background-color: rgb(226, 226, 226);
+    border: none;
+    width: fit-content;
+    height: fit-content;
+    text-align: center;
+    border-radius: 10px;
+    padding: 10px;
+    margin: 5px 10px;
+    cursor: pointer;
+  }
+}
+.btn button:hover {
+  color: white;
+  background-color: black;
+}
+#File[type="file"] {
+  display: none;
+}
+// .imageselector {
+//   //   height: 10px;
+//   content: "Select some files";
+//   margin: 10px 2px;
+//   width: 100px;
+//   background-color: white;
+//   border: none;
+// }
+
+.imageselector {
+  color: transparent;
+}
+.imageselector::-webkit-file-upload-button {
+  visibility: hidden;
+}
+.imageselector::before {
+  content: "Select Image";
+  color: black;
+  display: inline-block;
+  background-color: rgb(226, 226, 226);
+  border-radius: 10px;
+  padding: 10px;
+  margin: 5px 10px;
+  outline: none;
+  white-space: nowrap;
+  cursor: pointer;
+  font-size: 10pt;
+}
+.imageselector:hover::before {
+  color: white;
+  background-color: black;
+}
+.imageselector:active {
+  outline: 0;
+}
+.imageselector:active::before {
+  background: -webkit-linear-gradient(top, #e3e3e3, #f9f9f9);
+}

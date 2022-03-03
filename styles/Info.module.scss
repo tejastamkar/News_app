@@ -1,0 +1,46 @@
+.Main {
+  align-items: center;
+  margin: 10px 20%;
+  position: relative;
+  text-align: left;
+  .Inputs {
+    justify-content: left;
+    margin: 20px auto;
+    label {
+      font-size: 20px;
+      font-weight: 600;
+      margin-right: 3px;
+    }
+    input {
+      margin: 5px 0px;
+      font-size: 15px;
+      border-radius: 4px;
+      height: 24px;
+      box-shadow: 1px 2px 5px rgba(53, 53, 53, 0.671);
+      border: 0px none;
+      box-shadow: 5px black;
+    }
+  }
+
+  .btn {
+    display: flex;
+    margin-left: 25%;
+    flex-flow: row;
+    button {
+      text-align: center;
+      background-color: rgb(226, 226, 226);
+      border: none;
+      width: fit-content;
+      height: fit-content;
+      text-align: center;
+      border-radius: 10px;
+      padding: 10px;
+      margin: 5px 10px;
+      cursor: pointer;
+    }
+    .btn button:hover {
+      color: white;
+      background-color: black;
+    }
+  }
+}
