@@ -1,3 +1,5 @@
+/* eslint-disable @next/next/no-img-element */
+/* eslint-disable jsx-a11y/alt-text */
 import { useState } from "react";
 import styles from "../styles/Import.module.scss";
 
@@ -88,11 +90,8 @@ export default function ImgSelector() {
       }
     );
   }
-  const SelectImage = () => {
-    var input = Document.name("File");
-    input.click();
-  };
-  const ImageJSX = (
+
+  const ImageJSX = () => (
     <div className={styles.card}>
       <img id="myimg" src={ImageSrc} className={styles.img} />
 
@@ -141,5 +140,5 @@ export default function ImgSelector() {
       <button id="downbtn">Download Image</button> */}
     </div>
   );
-  return [DownloadUrl, ImageJSX];
+  return { DownloadUrl, ImageJSX };
 }

@@ -17,7 +17,7 @@ import { useEffect } from "react";
 //   return imageurl;
 // }
 
-export default function Info() {
+export default function Info({ ImgUrl }) {
   // Inputbox varables
   const [Collection, setCollection] = useState("");
   const [Name, setName] = useState("");
@@ -26,9 +26,14 @@ export default function Info() {
   const [ImageUrl, setImageUrl] = useState("");
   const [Desc, setDesc] = useState("");
   const [Category, setCategory] = useState("");
+  const [UploadStatus, setUploadStatus] = useState("Ready to Upload Data");
   // useEffect(() => {
   //   setImageUrl(Imageurl);
   // }, [Imageurl]);
+
+  useEffect(() => {
+    setImageUrl(ImgUrl);
+  }, [ImgUrl]);
   const ClearAll = () => {
     setCollection("");
     setName("");
@@ -37,6 +42,7 @@ export default function Info() {
     setImageUrl("");
     setDesc("");
     setCategory("");
+    setUploadStatus("Ready to Upload Data");
   };
 
   async function UploadData() {
@@ -49,6 +55,7 @@ export default function Info() {
       Description: Desc,
       Category: Category,
     });
+    setUploadStatus("The Data is Uploaded");
   }
   return (
     <div className={styles.Main}>
@@ -104,11 +111,14 @@ export default function Info() {
         <br />
       </div>
       <div className={styles.btn}>
-        <button id="upbtn">Upload Data</button>
+        <button id="upbtn" onClick={() => UploadData()}>
+          Upload Data
+        </button>
         <button id="upbtn" onClick={() => ClearAll()}>
           Clear All
         </button>
       </div>
+      <h3>{UploadStatus}</h3>
     </div>
   );
 }

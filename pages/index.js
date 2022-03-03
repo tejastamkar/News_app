@@ -7,12 +7,13 @@ import ImgSelector from "../Components/ImgSelector";
 import styles from "../styles/Home.module.css";
 import Info from "../Components/Info";
 export default function Home() {
-  // const ImageFun = ImgSelector();
-  // const Downloadurl = ImageFun.DownloadUrl;
+  const ImageFun = ImgSelector();
+  const ImageSelectorJSX = ImageFun.ImageJSX;
+  const Downloadurl = ImageFun.DownloadUrl;
   // const ImageJSX = ImageFun[1];
   // const [Downloadurl, ImageJSX] = ImgSelector();
   // console.log(Downloadurl);
-  // const Dow
+  // const Do
   return (
     <div>
       <Head>
@@ -22,10 +23,10 @@ export default function Home() {
       <Navbar />
       <div className={styles.Main}>
         <div className={styles.Image}>
-          <ImgSelector />
+          <ImageSelectorJSX />
         </div>
         <div className={styles.Info}>
-          <Info />
+          <Info ImgUrl={Downloadurl} />
         </div>
       </div>
       <Footer />
