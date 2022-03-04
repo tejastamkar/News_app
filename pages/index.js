@@ -6,6 +6,8 @@ import { collection, getDocs } from "firebase/firestore";
 import { db } from "../Firebase";
 import Navbar from "../Components/Navbar";
 import Footer from "../Components/Footer";
+// import SearchBar from "../Components/SearchBar";
+// import BookData from "../pages/Data.json";
 
 export default function Home({ News, Books }) {
   const MainTopdata = News.slice(0, 3);
@@ -20,6 +22,9 @@ export default function Home({ News, Books }) {
       </Head>
 
       <Navbar />
+      {/* <div className="App">
+      <SearchBar placeholder="Enter a Book Name..." data={BookData} />
+    </div> */}
       <Title Name={"Top News"} />
       <MainTopnews data={MainTopdata} />
       <Title Name={"News"} />

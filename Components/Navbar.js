@@ -1,6 +1,8 @@
 import Link from "next/link";
 import { useState } from "react";
 import styles from "../styles/NavBar.module.scss";
+import SearchBar from "../Components/SearchBar";
+import BookData from "../pages/Data.json";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -87,9 +89,10 @@ export default function Navbar() {
       </div>
 
       {/* search box */}
-      <div className={styles.search}>
-        <h2>Search</h2>
-      </div>
+      {/* <div className={styles.search}> */}
+      <div className="App">
+      <SearchBar placeholder="Enter a Book Name..." data={BookData} />
+    </div>
 
       {/* responsive navbar */}
       <button
@@ -101,10 +104,10 @@ export default function Navbar() {
         onClick={openMenu}
       >
         <span className={styles.bar}></span>
-        <span className={styles.bar}></span>
-        <span className={styles.bar}></span>
-        <span className={styles.bar}></span>
-        <span className={styles.bar}></span>
+        <span className={styles.bar1}></span>
+        <span className={styles.bar2}></span>
+        {/* <span className={styles.bar}></span> */}
+        {/* <span className={styles.bar}></span> */}
       </button>
     </nav>
   );

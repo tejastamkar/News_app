@@ -14,7 +14,7 @@
 .search {
   flex: 1;
   text-align: end;
-  margin: 0px auto 0px 7px;
+  margin: 0px 7px;
 }
 .hamburger {
   display: none;
@@ -22,10 +22,30 @@
 
 .bar {
   display: block;
-  width: 25px;
-  height: 1px;
+  width: 30px;
+  height: 2px;
   margin: 4px auto;
-  -webkit-transition: all 0.3s ease-in-out;
+  -webkit-transition:all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+  background-color: black;
+}
+.bar1 {
+  display: block;
+  width: 20px;
+  height: 2px;
+  margin-left: 10px ;
+  /* margin: 4px auto; */
+  -webkit-transition:all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+  background-color: black;
+}
+
+.bar2 {
+  display: block;
+  width: 30px;
+  height: 2px;
+  margin: 4px auto;
+  -webkit-transition:all 0.3s ease-in-out;
   transition: all 0.3s ease-in-out;
   background-color: black;
 }
@@ -55,8 +75,8 @@
 @media only screen and (max-width: 768px) {
   .navmenu {
     position: fixed;
-    left: -100%;
-    top: 0px;
+    top: -100%;
+    left: 0px;
     flex-direction: column;
     background-color: #fff;
     width: 100%;
@@ -67,7 +87,7 @@
   }
 
   .navmenu.active {
-    left: 0;
+    top: 0;
   }
 
   .navlink {
@@ -79,14 +99,14 @@
     display: block;
     cursor: pointer;
   }
-  .hamburger.active .bar:nth-child(2) {
+  .hamburger.active .bar1:nth-child(2) {
     opacity: 0;
   }
   .hamburger.active .bar:nth-child(1) {
     -webkit-transform: translateY(8px) rotate(45deg);
     transform: translateY(8px) rotate(45deg);
   }
-  .hamburger.active .bar:nth-child(3) {
+  .hamburger.active .bar2:nth-child(3) {
     -webkit-transform: translateY(-8px) rotate(-45deg);
     transform: translateY(-8px) rotate(-45deg);
   }
