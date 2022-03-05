@@ -1,5 +1,5 @@
 import Image from "next/image";
-import wall from "../assets/Wall.jpg";
+// import wall from "../assets/Wall.jpg";
 import styles from "../styles/Home.module.scss";
 import { Details } from "./TitleandDetails";
 import Link from "next/link";
@@ -10,11 +10,11 @@ export default function MainTopnews({ data }) {
       <Link href={`/docs/news/${data[0].id}`}>
         <a className={styles.Main}>
           <div className={styles.ImageContainer}>
-            <Image
+            <img
               className={styles.Image}
               alt="Image"
-              width={"1000"}
-              height={"500"}
+              // width={"1000"}
+              // height={"500"}
               layout="intrinsic"
               object-fit="cover"
               src={data[0].url}

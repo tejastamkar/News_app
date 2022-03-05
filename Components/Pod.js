@@ -9,10 +9,9 @@ import podimage from "../assets/podcast1.jpeg";
 import Image from "next/image";
 import { useRouter } from "next/router";
 
-export default function PodCast({ Data, key }) {
+export default function PodCast({ Data, Index }) {
   const router = useRouter();
   const { params = [] } = router.query;
-  console.log(params);
   // state
   const [trackIndex, setTrackIndex] = useState(-1);
   const [isPlaying, setIsPlaying] = useState(false);
@@ -24,7 +23,7 @@ export default function PodCast({ Data, key }) {
   const progressBar = useRef(); // reference our progress bar
   const animationRef = useRef(); // reference the animation
   useEffect(() => {
-    if (trackIndex != key) {
+    if (trackIndex != Index) {
       audioPlayer.current.pause();
     }
   }, [trackIndex]);
@@ -46,7 +45,7 @@ export default function PodCast({ Data, key }) {
     const prevValue = isPlaying;
     setIsPlaying(!prevValue);
     if (!prevValue) {
-      setTrackIndex(key);
+      setTrackIndex(Index);
       audioPlayer.current.play();
       animationRef.current = requestAnimationFrame(whilePlaying);
     } else {
@@ -96,8 +95,8 @@ export default function PodCast({ Data, key }) {
         />
       </div>
       <div className={styles.audio}>
-        <h2 className={styles.Title}>Title of PodCast</h2>
-        <audio ref={audioPlayer} src={Data} preload="metadata"></audio>
+        <h2 className={styles.Title}>{Data.title}</h2>
+        <audio ref={audioPlayer} src={Data.data} preload="metadata"></audio>
         {/* <audio
           ref={audioPlayer}
           src="https://cdn.simplecast.com/audio/cae8b0eb-d9a9-480d-a652-0defcbe047f4/episodes/af52a99b-88c0-4638-b120-d46e142d06d3/audio/500344fb-2e2b-48af-be86-af6ac341a6da/default_tc.mp3"
@@ -127,7 +126,7 @@ export default function PodCast({ Data, key }) {
         </div>
       </div>
 
-      {/* <ReactAudioPlayer className="audioplayer" src={Data} controls key="1" /> */}
+      {/* <ReactAudioPlayer className="audioplayer" src={Data} controls Index="1" /> */}
     </div>
   );
 
@@ -178,7 +177,7 @@ export default function PodCast({ Data, key }) {
         </div>
       </div>
 
-      {/* <ReactAudioPlayer className="audioplayer" src={Data} controls key="1" /> */}
+      {/* <ReactAudioPlayer className="audioplayer" src={Data} controls Index="1" /> */}
     </div>
   );
   const FullViewPod = ({ Data }) => (
@@ -228,7 +227,7 @@ export default function PodCast({ Data, key }) {
         </div>
       </div>
 
-      {/* <ReactAudioPlayer className="audioplayer" src={Data} controls key="1" /> */}
+      {/* <ReactAudioPlayer className="audioplayer" src={Data} controls Index="1" /> */}
     </div>
   );
 
