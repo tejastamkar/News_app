@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import styles from "../styles/SearchBar.module.css";
 import { BiSearch } from "react-icons/bi";
 import { AiOutlineCloseCircle } from "react-icons/ai";
-
+import Link from "next/link";
 function SearchBar({ placeholder, data }) {
   const [filteredData, setFilteredData] = useState([]);
   const [wordEntered, setWordEntered] = useState("");
@@ -11,7 +11,8 @@ function SearchBar({ placeholder, data }) {
     const searchWord = event.target.value;
     setWordEntered(searchWord);
     const newFilter = data.filter((value) => {
-      return value.title.toLowerCase().includes(searchWord.toLowerCase());
+      // console.log(value.name.toLowerCase().includes(searchWord.toLowerCase()));
+      return value.name.toLowerCase().includes(searchWord.toLowerCase());
     });
 
     if (searchWord === "") {
@@ -27,7 +28,7 @@ function SearchBar({ placeholder, data }) {
   };
 
   return (
-    <div className={styles.search}>
+    <>
       <div className={styles.searchInputs}>
         <input
           className={styles.searchInputBar}
@@ -47,24 +48,25 @@ function SearchBar({ placeholder, data }) {
           )}
         </div>
       </div>
+
       {filteredData.length != 0 && (
         <div className={styles.dataResult}>
           {filteredData.slice(0, 15).map((value, key) => {
             return (
-              <a
+              <Link
                 key={key}
                 className={styles.dataItem}
-                href={value.link}
+                href={`/docs/news/${value.id}`}
                 target="_blank"
                 rel="noreferrer"
               >
-                <p className={styles.DataItems}>{value.title} </p>
-              </a>
+                <p className={styles.DataItems}>{value.name} </p>
+              </Link>
             );
           })}
         </div>
       )}
-    </div>
+    </>
   );
 }
 

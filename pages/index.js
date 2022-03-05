@@ -7,10 +7,13 @@ import { db } from "../Firebase";
 import Navbar from "../Components/Navbar";
 import Footer from "../Components/Footer";
 import { PodCastData } from "../assets/PodData";
+import MusicData from "../assets/Data.json";
+
 export default function Home({ News, Books }) {
   const MainTopdata = News.slice(0, 3);
   const NewsItems = News.slice(1);
-  const PodCastItems = PodCastData.slice(0, 3);
+  // const PodCastItems = PodCastData.slice(0, 3);
+  const Filtered = MusicData.slice(0, 3);
   Books = Books.slice(0, 4);
   return (
     <div>
@@ -30,7 +33,7 @@ export default function Home({ News, Books }) {
         <Title Name={"Books"} />
         <Cards data={Books} Items={"books"} />
         <Title Name={"PodCast"} />
-        <Cards data={PodCastItems} Items={"podcast"} />
+        <Cards data={Filtered} Items={"podcast"} />
         <Footer />
       </div>
     </div>

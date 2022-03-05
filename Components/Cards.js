@@ -4,7 +4,7 @@ import styles from "../styles/Cards.module.scss";
 import Image from "next/image";
 import Link from "next/link";
 import PodCast from "./Pod";
-
+import MusicData from "../assets/Data.json";
 export default function Cards({ Items, data }) {
   const Name = Items.toString().toLowerCase();
   if (Name == "books" && data) {
@@ -35,11 +35,10 @@ export default function Cards({ Items, data }) {
     );
   }
   if (Name == "podcast" && data) {
-    console.log(data[1].Data);
     return (
       <div className={styles.all__PodCards}>
-        {data.map((data, index) => (
-          <PodCast key={index} Data={data} />
+        {MusicData.map((data, index) => (
+          <PodCast key={index} Index={index} Data={data} />
         ))}
       </div>
     );
