@@ -2,7 +2,10 @@ import Link from "next/link";
 import styles from "../styles/NavBar.module.scss";
 import { useState, useEffect } from "react";
 import { BiSearch } from "react-icons/bi";
+import BookData from "../assets/Data.json";
+import SearchBar from "./SearchBar";
 export default function Navbar() {
+  const [OpenSearch, setOpenSearch] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
   const openMenu = () => setIsOpen(!isOpen);
   useEffect(() => {
@@ -13,7 +16,41 @@ export default function Navbar() {
     }
   }, [isOpen]);
 
-  return (
+  return OpenSearch ? (
+    <nav className={styles.navbar}>
+      <div className={styles.logo}>
+        <Link href="/">
+          <a className={styles.logo}>Logo</a>
+        </Link>
+      </div>
+
+      {/* navbar elements */}
+      <div
+        className={
+          (styles.navBtn,
+          isOpen === false
+            ? styles.navmenu
+            : styles.navmenu + " " + styles.active)
+        }
+      >
+        <SearchBar placeholder="Enter a Book Name..." data={BookData} />
+      </div>
+
+      {/* search box */}
+      <div style={{ flex: 1 }}>
+        <div
+          className={styles.search}
+          onClick={() => {
+            setOpenSearch(!OpenSearch);
+          }}
+        >
+          <BiSearch className={styles.searchicon} />
+        </div>
+      </div>
+
+      {/* responsive navbar */}
+    </nav>
+  ) : (
     <nav className={styles.navbar}>
       <div className={styles.logo}>
         <Link href="/">
@@ -96,7 +133,12 @@ export default function Navbar() {
 
       {/* search box */}
       <div style={{ flex: 1 }}>
-        <div className={styles.search}>
+        <div
+          className={styles.search}
+          onClick={() => {
+            setOpenSearch(!OpenSearch);
+          }}
+        >
           <BiSearch className={styles.searchicon} />
         </div>
       </div>

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-// import "./SearchBar.css";
-import SearchIcon from "@material-ui/icons/Search";
-import CloseIcon from "@material-ui/icons/Close";
+import styles from "../styles/SearchBar.module.css";
+import { BiSearch } from "react-icons/bi";
+import { AiOutlineCloseCircle } from "react-icons/ai";
 
 function SearchBar({ placeholder, data }) {
   const [filteredData, setFilteredData] = useState([]);
@@ -27,28 +27,38 @@ function SearchBar({ placeholder, data }) {
   };
 
   return (
-    <div className="search">
-      <div className="searchInputs">
+    <div className={styles.search}>
+      <div className={styles.searchInputs}>
         <input
+          className={styles.searchInputBar}
           type="text"
           placeholder={placeholder}
           value={wordEntered}
           onChange={handleFilter}
         />
-        <div className="searchIcon">
+        <div className={styles.searchIcon}>
           {filteredData.length === 0 ? (
-            <SearchIcon />
+            <BiSearch />
           ) : (
-            <CloseIcon id="clearBtn" onClick={clearInput} />
+            <AiOutlineCloseCircle
+              className={styles.clearBtn}
+              onClick={clearInput}
+            />
           )}
         </div>
       </div>
       {filteredData.length != 0 && (
-        <div className="dataResult">
+        <div className={styles.dataResult}>
           {filteredData.slice(0, 15).map((value, key) => {
             return (
-              <a className="dataItem" href={value.link} target="_blank">
-                <p>{value.title} </p>
+              <a
+                key={key}
+                className={styles.dataItem}
+                href={value.link}
+                target="_blank"
+                rel="noreferrer"
+              >
+                <p className={styles.DataItems}>{value.title} </p>
               </a>
             );
           })}
