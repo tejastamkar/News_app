@@ -12,6 +12,10 @@ import { useRouter } from "next/router";
 export default function PodCast({ Data, Index }) {
   const router = useRouter();
   const { params = [] } = router.query;
+<<<<<<< HEAD
+=======
+//   console.log(params);
+>>>>>>> d19d720ff92f26f3f02983c2534c9282b51885a8
   // state
   const [trackIndex, setTrackIndex] = useState(-1);
   const [isPlaying, setIsPlaying] = useState(false);
