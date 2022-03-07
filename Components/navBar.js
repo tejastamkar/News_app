@@ -54,6 +54,18 @@ export default function Navbar() {
             Request
           </a>
         </Link>
+        <Link href="/Datatable" className={styles.navitem}>
+          <a
+            className={
+              isOpen === false
+                ? styles.navlink
+                : styles.navlink + " " + styles.active
+            }
+            onClick={openMenu}
+          >
+            DataTables
+          </a>
+        </Link>
       </div>
 
       {/* search box */}

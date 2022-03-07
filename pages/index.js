@@ -6,14 +6,12 @@ import Footer from "../Components/Footer";
 import ImgSelector from "../Components/ImgSelector";
 import styles from "../styles/Home.module.css";
 import Info from "../Components/Info";
+
 export default function Home() {
   const ImageFun = ImgSelector();
   const ImageSelectorJSX = ImageFun.ImageJSX;
   const Downloadurl = ImageFun.DownloadUrl;
-  // const ImageJSX = ImageFun[1];
-  // const [Downloadurl, ImageJSX] = ImgSelector();
-  // console.log(Downloadurl);
-  // const Do
+
   return (
     <div>
       <Head>
