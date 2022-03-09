@@ -1,4 +1,5 @@
 import "react-dropdown/style.css";
+import styles from "../styles/dropbox.module.scss";
 import { useState } from "react";
 // import { Dropdown } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.css";
@@ -10,7 +11,8 @@ export default function DropBoxInput() {
     { id: 1, name: "News" },
     { id: 2, name: "Magzine" },
     { id: 3, name: "Book" },
-    { id: 4, name: "Podcast" },
+    { id: 4, name: "Article" },
+    { id: 5, name: "Podcast" },
   ];
   useEffect(() => {
     import("bootstrap/dist/js/bootstrap");
@@ -18,8 +20,8 @@ export default function DropBoxInput() {
 
   function DropBoxInputJsx() {
     return (
-      <div className="container p-3">
-        <div className="dropdown m-3">
+      <div className={styles.container}>
+        <div className={styles.dropdown}>
           <button
             className="btn btn-secondary dropdown-toggle"
             type="button"
@@ -31,7 +33,7 @@ export default function DropBoxInput() {
           </button>
           <ul className="dropdown-menu" aria-labelledby="dropdownMenuButton1">
             {Dropboxmenu.map((Data, index) => (
-              <li>
+              <li key={index}>
                 <a
                   className="dropdown-item"
                   onClick={() => setDropbox(Data.id)}
