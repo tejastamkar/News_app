@@ -36,17 +36,16 @@ function AllArticleTable(DBName) {
   var [Data, setData] = useState([]);
   useEffect(() => {
     async function getData() {
-      setData(Data = []);
+      // setData((Data = []));
       const data = await getDataBase({ Data, setMyLoader, DBName });
       setData(data.Data);
       setMyLoader(data.setMyLoader);
       setMyLoader(true);
-  
     }
     getData();
-  }, []);
+  }, [DBName]);
   return MyLoader ? (
-    <div class={styles.my}>
+    <div className={styles.my}>
       <table className={styles.Table}>
         <thead className={styles.tableHead}>
           <tr>

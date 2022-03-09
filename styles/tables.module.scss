@@ -1,24 +1,28 @@
 .Table {
   border: 1px black solid;
+  width: 100%;
   .tableHead {
     border: 1px black solid;
     background: rgb(227, 199, 228);
   }
   .tableBody {
     background: rgb(247, 233, 233);
+    // overflow: scroll;
+    // width: 80%;
   }
 }
 
-
 .my {
+  margin: 2px auto;
   position: relative;
-  height: 435px;
-  width:auto;
+  height: 500px;
+  width: 100%;
   overflow: auto;
   display: block;
 }
 
 .tableData {
-    max-height: 60%;
-    border: 1px black solid;
+  max-height: 60%;
+  // width: 300px;
+  border: 1px black solid;
 }
