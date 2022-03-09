@@ -10,6 +10,8 @@ import {
 } from "firebase/firestore";
 import { db } from "../Firebase";
 import { useEffect } from "react";
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
 
 // export function GetImageUrl(url) {
 //   const [imageurl, setimageurl] = useState("");
@@ -26,6 +28,7 @@ export default function Info({ ImgUrl }) {
   const [ImageUrl, setImageUrl] = useState("");
   const [Desc, setDesc] = useState("");
   const [Category, setCategory] = useState("");
+  const [DocDate, setDocDate] = useState("");
   const [UploadStatus, setUploadStatus] = useState("Ready to Upload Data");
   // useEffect(() => {
   //   setImageUrl(Imageurl);
@@ -42,20 +45,31 @@ export default function Info({ ImgUrl }) {
     setImageUrl("");
     setDesc("");
     setCategory("");
+    setDocDate("");
     setUploadStatus("Ready to Upload Data");
   };
 
+  // const getDate = () => {
+  //   splits = DocDate.split(" ", 3);
+  //   console.log(slipts);
+  // };
   async function UploadData() {
-    const ref = collection(db, Collection);
-    await addDoc(ref, {
-      Name: Name,
-      Title: Title,
-      Url: Url,
-      ImageUrl: ImageUrl,
-      Description: Desc,
-      Category: Category,
-    });
-    setUploadStatus("The Data is Uploaded");
+    // getDate();
+    console.log(DocDate);
+    if (!Collection) {
+      setUploadStatus("Enter Proper Data");
+    } else {
+      const ref = collection(db, Collection);
+      await addDoc(ref, {
+        Name: Name,
+        Title: Title,
+        Url: Url,
+        ImageUrl: ImageUrl,
+        Description: Desc,
+        Category: Category,
+      });
+      setUploadStatus("The Data is Uploaded");
+    }
   }
   return (
     <div className={styles.Main}>
@@ -109,6 +123,8 @@ export default function Info({ ImgUrl }) {
           onInput={(e) => setCategory(e.target.value)}
         />{" "}
         <br />
+        <label>Date:</label>
+        <DatePicker selected={DocDate} onChange={(date) => setDocDate(date)} />
       </div>
       <div className={styles.btn}>
         <button id="upbtn" onClick={() => UploadData()}>
