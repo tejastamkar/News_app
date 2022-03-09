@@ -1,0 +1,24 @@
+.Table {
+  border: 1px black solid;
+  .tableHead {
+    border: 1px black solid;
+    background: rgb(227, 199, 228);
+  }
+  .tableBody {
+    background: rgb(247, 233, 233);
+  }
+}
+
+
+.my {
+  position: relative;
+  height: 435px;
+  width:auto;
+  overflow: auto;
+  display: block;
+}
+
+.tableData {
+    max-height: 60%;
+    border: 1px black solid;
+}
