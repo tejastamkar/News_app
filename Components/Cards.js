@@ -3,8 +3,8 @@ import { Details, Title } from "./TitleandDetails";
 import styles from "../styles/Cards.module.scss";
 import Image from "next/image";
 import Link from "next/link";
-import PodCast from "./Pod";
-import MusicData from "../assets/Data.json";
+// import PodCast from "./Pod";
+// import MusicData from "../assets/Data.json";
 export default function Cards({ Items, data }) {
   const Name = Items.toString().toLowerCase();
   if (Name == "books" && data) {
@@ -34,11 +34,11 @@ export default function Cards({ Items, data }) {
       </div>
     );
   }
-  if (Name == "podcast" && data) {
+  if (Name == "articles" && data) {
     return (
-      <div className={styles.all__PodCards}>
-        {MusicData.map((data, index) => (
-          <PodCast key={index} Index={index} Data={data} />
+      <div className={styles.all__Cards}>
+        {data.map((data, index) => (
+          <Books key={index} data={data} />
         ))}
       </div>
     );

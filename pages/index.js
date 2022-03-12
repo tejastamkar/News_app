@@ -33,8 +33,8 @@ export default function Home({ News, Books }) {
         <Cards data={Books} Items={"Magazine"} />
         <Title Name={"Books"} />
         <Cards data={Books} Items={"books"} />
-        <Title Name={"PodCast"} />
-        <Cards data={Filtered} Items={"podcast"} />
+        <Title Name={"Articles"} />
+        <Cards data={Books} Items={"books"} />
         <Footer />
       </div>
     </div>
