@@ -1,16 +1,46 @@
 import Link from "next/link";
 import styles from "../styles/NavBar.module.scss";
+// import "../styles/NavBar.scss";
 import { useState, useEffect } from "react";
 import { BiSearch } from "react-icons/bi";
 import SearchBar from "./SearchBar";
 import { db } from "../Firebase";
 import { collection, getDocs } from "firebase/firestore";
 import { AiOutlineCloseCircle } from "react-icons/ai";
+import { useRouter } from "next/router";
+
 export default function Navbar() {
+  // for mobile view navbar
   const Data = [];
-  const [OpenSearch, setOpenSearch] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
   const openMenu = () => setIsOpen(!isOpen);
+  // for search bar
+  const [OpenSearch, setOpenSearch] = useState(false);
+
+  // for Underline
+  const router = useRouter();
+  const { params = [] } = router.query;
+  const [Underline, setUnderline] = useState("Home");
+  useEffect(() => {
+    switch (params[0]) {
+      case "News":
+        setUnderline("News");
+        break;
+      case "Books":
+        setUnderline("Books");
+        break;
+      case "Magazine":
+        setUnderline("Magazine");
+        break;
+      case "Articles":
+        setUnderline("Articles");
+        break;
+      default:
+        setUnderline("Home");
+        break;
+    }
+  }, [params]);
+
   useEffect(() => {
     if (isOpen) {
       document.getElementById("Top").style.display = "none";
@@ -64,9 +94,10 @@ export default function Navbar() {
           <Link href="/" className={styles.navitem}>
             <a
               className={
-                isOpen === false
+                (isOpen === false
                   ? styles.navlink
-                  : styles.navlink + " " + styles.active
+                  : styles.navlink + " " + styles.active,
+                Underline === "Home" ? styles.underline : styles.noline)
               }
               onClick={openMenu}
             >
@@ -76,9 +107,10 @@ export default function Navbar() {
           <Link href="/docs/News" className={styles.navitem}>
             <a
               className={
-                isOpen === false
+                (isOpen === false
                   ? styles.navlink
-                  : styles.navlink + " " + styles.active
+                  : styles.navlink + " " + styles.active,
+                Underline === "News" ? styles.underline : styles.noline)
               }
               onClick={openMenu}
             >
@@ -89,9 +121,10 @@ export default function Navbar() {
           <Link href="/docs/Magazine" className={styles.navitem}>
             <a
               className={
-                isOpen === false
+                (isOpen === false
                   ? styles.navlink
-                  : styles.navlink + " " + styles.active
+                  : styles.navlink + " " + styles.active,
+                Underline === "Magazine" ? styles.underline : styles.noline)
               }
               onClick={openMenu}
             >
@@ -99,28 +132,30 @@ export default function Navbar() {
             </a>
           </Link>
 
-          <Link href="/docs/Podcast" className={styles.navitem}>
+          <Link href="/docs/Books" className={styles.navitem}>
             <a
               className={
-                isOpen === false
+                (isOpen === false
                   ? styles.navlink
-                  : styles.navlink + " " + styles.active
+                  : styles.navlink + " " + styles.active,
+                Underline === "Books" ? styles.underline : styles.noline)
               }
               onClick={openMenu}
             >
-              Podcast
+              Books
             </a>
           </Link>
-          <Link href="/aboutus" className={styles.navitem}>
+          <Link href="/docs/Articles" className={styles.navitem}>
             <a
               className={
-                isOpen === false
+                (isOpen === false
                   ? styles.navlink
-                  : styles.navlink + " " + styles.active
+                  : styles.navlink + " " + styles.active,
+                Underline === "Articles" ? styles.underline : styles.noline)
               }
               onClick={openMenu}
             >
-              About Us
+              Articles
             </a>
           </Link>
         </div>

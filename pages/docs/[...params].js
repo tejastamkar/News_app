@@ -42,14 +42,14 @@ function getDB(props) {
       Name = "Magazine";
       Dbname = "book testing";
       break;
-    case "Podcast":
-    case "podcast":
-    case "Podcasts":
-      Name = "Podcast";
+    case "Articles":
+    case "article":
+    case "Articles":
+      Name = "Articles";
       Dbname = "book testing";
       break;
     default:
-      Dbname = "Tmep";
+      Dbname = "Temp";
       break;
   }
 
