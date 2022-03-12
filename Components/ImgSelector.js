@@ -66,6 +66,9 @@ export default function ImgSelector() {
     const storage = getStorage();
 
     const stroageRef = ref(storage, `${Folder}/` + File_Name);
+    if (!File_Name) {
+      return alert("Please Select the Image and Enter Name");
+    }
     const UploadTask = uploadBytesResumable(stroageRef, Files, metaData);
     UploadTask.on(
       "state_changed",
