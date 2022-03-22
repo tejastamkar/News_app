@@ -1,13 +1,6 @@
 import { useState } from "react";
 import styles from "../styles/Info.module.scss";
-import {
-  getFirestore,
-  doc,
-  getDocs,
-  setDoc,
-  collection,
-  addDoc,
-} from "firebase/firestore";
+import { collection, addDoc } from "firebase/firestore";
 import { db } from "../Firebase";
 import { useEffect } from "react";
 import DatePicker from "react-datepicker";
