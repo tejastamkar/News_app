@@ -20,7 +20,7 @@ export default function Tables({ TableIndex }) {
     case 1:
       return AllArticleTable("News");
     case 2:
-      return AllArticleTable("books testing");
+      return AllArticleTable("Weather");
     case 3:
       return AllArticleTable("test");
     case 4:
@@ -61,12 +61,12 @@ function AllArticleTable(DBName) {
         <tbody className={styles.tableBody}>
           {Data.map((data, index) => (
             <tr key={index}>
-              <td className={styles.tableData}>{data.category}</td>
-              <td className={styles.tableData}>{data.name}</td>
-              <td className={styles.tableData}>{data.title}</td>
-              <td className={styles.tableData}>{data.description}</td>
-              <td className={styles.tableData}>{data.url}</td>
-              <td className={styles.tableData}>{data.urlToImage}</td>
+              <td className={styles.tableCategory}>{data.category}</td>
+              <td className={styles.tableName}>{data.name}</td>
+              <td className={styles.tableTitle}>{data.title}</td>
+              <td className={styles.tableDesc}>{data.description}</td>
+              <td className={styles.tableUrl}>{data.url}</td>
+              <td className={styles.tableUrltoimg}>{data.urlToImage}</td>
             </tr>
           ))}
         </tbody>

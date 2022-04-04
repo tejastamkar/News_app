@@ -12,13 +12,32 @@
 
 .my {
   position: relative;
-  height: 435px;
-  width:auto;
+  height: 450px;
   overflow: auto;
   display: block;
 }
 
-.tableData {
-    max-height: 60%;
-    border: 1px black solid;
+.tableCategory {
+  border: 1px black solid;
+  max-width: fit-content;
+}
+
+.tableName {
+  border: 1px black solid;
+}
+
+.tableTitle {
+  border: 1px black solid;
+}
+
+.tableDesc {
+  border: 1px black solid;
+}
+
+.tableUrl {
+  border: 1px black solid;
+}
+
+.tableUrltoimg {
+  border: 1px black solid;
 }

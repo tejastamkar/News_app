@@ -1,7 +1,7 @@
 import "react-dropdown/style.css";
 import styles from "../styles/dropbox.module.scss";
 import { useState } from "react";
-import { Dropdown } from "react-bootstrap";
+// import { Dropdown } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.css";
 import { useEffect } from "react";
 
