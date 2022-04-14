@@ -1,5 +1,4 @@
-import { Details, Title } from "./TitleandDetails";
-// import { useState, useEffect } from "react";
+import { Details } from "./TitleandDetails";
 import styles from "../styles/Cards.module.scss";
 import Image from "next/image";
 import Link from "next/link";
@@ -58,7 +57,7 @@ function News({ data }) {
             height={700}
             alt="newImage"
           />
-          <Details />
+          <Details date={data.date} src={data.src}/>
         </div>
         <p className={styles.Tiles}>{data.name}</p>
       </a>
@@ -77,7 +76,7 @@ function Books({ data }) {
             height={1000}
             alt="newImage"
           />
-          <Details />
+          <Details date={data.date} src={data.src}/>
         </div>
         <p className={styles.Tiles}>{data.name}</p>
       </a>

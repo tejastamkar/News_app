@@ -9,7 +9,7 @@ import { collection, getDocs } from "firebase/firestore";
 import { AiOutlineCloseCircle } from "react-icons/ai";
 import { useRouter } from "next/router";
 
-export default function Navbar() {
+export default function Navbar({ main }) {
   // for mobile view navbar
   const Data = [];
   const [isOpen, setIsOpen] = useState(false);
@@ -20,7 +20,9 @@ export default function Navbar() {
   // for Underline
   const router = useRouter();
   const { params = [] } = router.query;
+
   const [Underline, setUnderline] = useState("Home");
+
   useEffect(() => {
     switch (params[0]) {
       case "News":
@@ -35,19 +37,31 @@ export default function Navbar() {
       case "Articles":
         setUnderline("Articles");
         break;
+      // case undefined:
+      //   if (router.route == "/docs/CreateArticle") {
+      //     setUnderline("");
+      //   } else {
+      //     setUnderline("Home");
+      //   }
+      //   break;
       default:
         setUnderline("Home");
         break;
     }
   }, [params]);
 
-  useEffect(() => {
-    if (isOpen) {
-      document.getElementById("Top").style.display = "none";
-    } else {
-      document.getElementById("Top").style.display = "block";
-    }
-  }, [isOpen]);
+  useEffect(
+    (main) => {
+      if (main) {
+        if (isOpen) {
+          document.getElementById("Top").style.display = "none";
+        } else {
+          document.getElementById("Top").style.display = "block";
+        }
+      }
+    },
+    [isOpen]
+  );
 
   useEffect(async () => {
     await getDocs(collection(db, "testing")).then(async (snapshort) => {
