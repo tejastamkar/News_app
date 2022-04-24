@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import styles from "../styles/NavBar.module.scss";
 // import "../styles/NavBar.scss";
 import { useState, useEffect } from "react";
@@ -8,7 +9,7 @@ import { db } from "../Firebase";
 import { collection, getDocs } from "firebase/firestore";
 import { AiOutlineCloseCircle } from "react-icons/ai";
 import { useRouter } from "next/router";
-
+import Logo from '../public/Picture2.png'
 export default function Navbar({ main }) {
   // for mobile view navbar
   const Data = [];
@@ -80,100 +81,104 @@ export default function Navbar({ main }) {
     <nav className={styles.navbar}>
       <div className={styles.logo}>
         <Link href="/">
-          <a className={styles.logo}>Logo</a>
+          <a className={styles.logo}>
+            <Image src={Logo} layout={"fixed"} width={70} height={70}></Image>
+          </a>
         </Link>
       </div>
 
       {/* navbar elements */}
-      {OpenSearch ? (
-        <div
-          className={
-            (styles.SearchBar,
-            isOpen === false
-              ? styles.navmenu
-              : styles.navmenu + " " + styles.active)
-          }
-        >
-          <SearchBar placeholder="Enter a Book Name..." data={Data} />
-        </div>
-      ) : (
-        <div
-          className={
-            (styles.navBtn,
-            isOpen === false
-              ? styles.navmenu
-              : styles.navmenu + " " + styles.active)
-          }
-        >
-          <Link href="/" className={styles.navitem}>
-            <a
-              className={
-                (isOpen === false
-                  ? styles.navlink
-                  : styles.navlink + " " + styles.active,
-                Underline === "Home" ? styles.underline : styles.noline)
-              }
-              onClick={openMenu}
-            >
-              Home
-            </a>
-          </Link>
-          <Link href="/docs/News" className={styles.navitem}>
-            <a
-              className={
-                (isOpen === false
-                  ? styles.navlink
-                  : styles.navlink + " " + styles.active,
-                Underline === "News" ? styles.underline : styles.noline)
-              }
-              onClick={openMenu}
-            >
-              News
-            </a>
-          </Link>
+      {
+        OpenSearch ? (
+          <div
+            className={
+              (styles.SearchBar,
+                isOpen === false
+                  ? styles.navmenu
+                  : styles.navmenu + " " + styles.active)
+            }
+          >
+            <SearchBar placeholder="Enter a Book Name..." data={Data} />
+          </div>
+        ) : (
+          <div
+            className={
+              (styles.navBtn,
+                isOpen === false
+                  ? styles.navmenu
+                  : styles.navmenu + " " + styles.active)
+            }
+          >
+            <Link href="/" className={styles.navitem}>
+              <a
+                className={
+                  (isOpen === false
+                    ? styles.navlink
+                    : styles.navlink + " " + styles.active,
+                    Underline === "Home" ? styles.underline : styles.noline)
+                }
+                onClick={openMenu}
+              >
+                Home
+              </a>
+            </Link>
+            <Link href="/docs/News" className={styles.navitem}>
+              <a
+                className={
+                  (isOpen === false
+                    ? styles.navlink
+                    : styles.navlink + " " + styles.active,
+                    Underline === "News" ? styles.underline : styles.noline)
+                }
+                onClick={openMenu}
+              >
+                News
+              </a>
+            </Link>
 
-          <Link href="/docs/Magazine" className={styles.navitem}>
-            <a
-              className={
-                (isOpen === false
-                  ? styles.navlink
-                  : styles.navlink + " " + styles.active,
-                Underline === "Magazine" ? styles.underline : styles.noline)
-              }
-              onClick={openMenu}
-            >
-              Magazine
-            </a>
-          </Link>
+            <Link href="/docs/Magazine" className={styles.navitem}>
+              <a
+                className={
+                  (isOpen === false
+                    ? styles.navlink
+                    : styles.navlink + " " + styles.active,
+                    Underline === "Magazine" ? styles.underline : styles.noline)
+                }
+                onClick={openMenu}
+              >
+                Magazine
+              </a>
+            </Link>
 
-          <Link href="/docs/Books" className={styles.navitem}>
-            <a
-              className={
-                (isOpen === false
-                  ? styles.navlink
-                  : styles.navlink + " " + styles.active,
-                Underline === "Books" ? styles.underline : styles.noline)
-              }
-              onClick={openMenu}
-            >
-              Books
-            </a>
-          </Link>
-          <Link href="/docs/Articles" className={styles.navitem}>
-            <a
-              className={
-                (isOpen === false
-                  ? styles.navlink
-                  : styles.navlink + " " + styles.active,
-                Underline === "Articles" ? styles.underline : styles.noline)
-              }
-              onClick={openMenu}
-            >
-              Articles
-            </a>
-          </Link>
-        </div>
-      )}
+            <Link href="/docs/Books" className={styles.navitem}>
+              <a
+                className={
+                  (isOpen === false
+                    ? styles.navlink
+                    : styles.navlink + " " + styles.active,
+                    Underline === "Books" ? styles.underline : styles.noline)
+                }
+                onClick={openMenu}
+              >
+                Books
+              </a>
+            </Link>
+            <Link href="/docs/Articles" className={styles.navitem}>
+              <a
+                className={
+                  (isOpen === false
+                    ? styles.navlink
+                    : styles.navlink + " " + styles.active,
+                    Underline === "Articles" ? styles.underline : styles.noline)
+                }
+                onClick={openMenu}
+              >
+                Articles
+              </a>
+            </Link>
+          </div>
+        )
+      }
       {/* search box */}
       <div style={{ flex: 1 }}>
         {OpenSearch ? (
@@ -209,6 +214,6 @@ export default function Navbar({ main }) {
         <span className={styles.bar_short}></span>
         <span className={styles.bar}></span>
       </button>
-    </nav>
+    </nav >
   );
 }

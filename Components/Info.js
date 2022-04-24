@@ -35,7 +35,7 @@ export default function Info({ ImageName, Extension, Files }) {
     };
     const storage = getStorage();
 
-    const stroageRef = ref(storage, `${Folder}/` + File_Name);
+    const stroageRef = ref(storage, `Request/${Folder}/` + File_Name);
     const UploadTask = uploadBytesResumable(stroageRef, Files, metaData);
     UploadTask.on(
       "state_changed",

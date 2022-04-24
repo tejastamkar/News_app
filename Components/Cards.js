@@ -2,6 +2,7 @@ import { Details } from "./TitleandDetails";
 import styles from "../styles/Cards.module.scss";
 import Image from "next/image";
 import Link from "next/link";
+import { Recommanded } from "../Helper/Recommand";
 // import PodCast from "./Pod";
 // import MusicData from "../assets/Data.json";
 export default function Cards({ Items, data }) {
@@ -47,8 +48,10 @@ export default function Cards({ Items, data }) {
 
 function News({ data }) {
   return (
-    <Link href={`/docs/news/${data.id}`}>
-      <a className={styles.Card}>
+    <Link href={`/docs/news/${data.id}`}  >
+      <a className={styles.Card} onClick={() => {
+        Recommanded(data.category)
+      }}>
         <div className={styles.ImageContainer}>
           <Image
             className={styles.Image}
@@ -57,7 +60,7 @@ function News({ data }) {
             height={700}
             alt="newImage"
           />
-          <Details date={data.date} src={data.src}/>
+          <Details date={data.date} src={data.src} />
         </div>
         <p className={styles.Tiles}>{data.name}</p>
       </a>
@@ -67,7 +70,9 @@ function News({ data }) {
 function Books({ data }) {
   return (
     <Link href={`/docs/books/${data.id}`}>
-      <a className={styles.Card}>
+      <a className={styles.Card} onClick={() => {
+        Recommanded(data.category)
+      }}>
         <div className={styles.ImageContainer}>
           <Image
             className={styles.Image}
@@ -76,7 +81,7 @@ function Books({ data }) {
             height={1000}
             alt="newImage"
           />
-          <Details date={data.date} src={data.src}/>
+          <Details date={data.date} src={data.src} />
         </div>
         <p className={styles.Tiles}>{data.name}</p>
       </a>
