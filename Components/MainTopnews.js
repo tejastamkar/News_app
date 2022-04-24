@@ -3,8 +3,12 @@ import Image from "next/image";
 import styles from "../styles/Home.module.scss";
 import { Details } from "./TitleandDetails";
 import Link from "next/link";
-
+import { useEffect, useState } from 'react';
 export default function MainTopnews({ data }) {
+
+
+
+
   return (
     <div className={styles.TopNews}>
       <Link href={`/docs/news/${data[0].id}`}>
@@ -13,13 +17,13 @@ export default function MainTopnews({ data }) {
             <img
               className={styles.Image}
               alt="Image"
-              // width={"1000"}
-              // height={"500"}
+              width={"200"}
+              height={"500"}
               layout="intrinsic"
               object-fit="cover"
               src={data[0].url}
             />
-            <Details />
+            <Details date={data[0].date} src={data[0].src} />
           </div>
           <h2 className={styles.titles}>{data[0].name}</h2>
           <h6 className={styles.decs}>
@@ -43,7 +47,7 @@ export default function MainTopnews({ data }) {
               />
             </div>
             <div className={styles.heading}>
-              <Details />
+              <Details date={data[1].date} src={data[1].src} />
               {data[1].name}
             </div>
           </a>
@@ -61,7 +65,7 @@ export default function MainTopnews({ data }) {
               />
             </div>
             <div className={styles.heading}>
-              <Details />
+              <Details date={data[2].date} src={data[2].src} />
               {data[2].name}
             </div>
           </a>

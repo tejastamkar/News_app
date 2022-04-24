@@ -9,7 +9,6 @@ import Navbar from "../../Components/Navbar";
 import Footer from "../../Components/Footer";
 
 async function getDataBase({ Data, setMyLoader, temp }) {
-  // Data = [];
   await getDocs(collection(db, temp)).then(async (snapshort) => {
     snapshort.docs.forEach((doc) => {
       Data.push({ ...doc.data(), id: doc.id });
@@ -86,7 +85,7 @@ export default function FullView() {
   if (params.length == 1 && Name !== "None") {
     return myloader ? (
       <>
-        <Navbar />
+        <Navbar main={true} />
         <div id="Top">
           <Title Name={Name} />
           <Cards Items={params} data={Data} />

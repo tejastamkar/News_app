@@ -1,0 +1,53 @@
+.Main {
+  display: flex;
+  width: 100%;
+  margin: 40px 2px;
+  /* border-bottom: 1px solid black; */
+}
+.Image {
+  flex: 1;
+  /* background-color: red; */
+  margin: 5px auto;
+  // border-right: 1px solid black;
+}
+.Info {
+  flex: 2;
+}
+
+.card {
+  margin: 2px auto;
+  text-align: center;
+  width: 100%;
+  .img {
+    border-style: none;
+    object-fit: contain;
+    height: 250px;
+    width: 250px;
+  }
+}
+
+.btn {
+  text-align: center;
+  margin: 5px auto;
+  .upbtn {
+    text-align: center;
+    background-color: rgb(226, 226, 226);
+    border: none;
+    width: fit-content;
+    height: fit-content;
+    text-align: center;
+    border-radius: 10px;
+    padding: 10px;
+    margin: 5px 10px;
+    cursor: pointer;
+  }
+  .upbtn:hover {
+    color: white;
+    background-color: black;
+  }
+}
+
+.imageselector {
+  display: none;
+  color: transparent;
+}
