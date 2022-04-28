@@ -1,0 +1,94 @@
+.backbtn {
+  border: 0px none;
+  border-radius: 50%;
+  margin: 20px 0px 0px 40px;
+  // padding: 10px;
+  width: 40px;
+  height: 40px;
+  background-color: wheat;
+  .backbtnimg {
+    font-size: 30px;
+    margin: 3px 0px;
+    // margin: 3px;
+    margin-left: -3px;
+  }
+}
+.backbtn:hover {
+  background-color: rgb(247, 225, 184);
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.3);
+}
+
+.ImageContainer_Mage {
+  margin: 0px auto;
+  width: 100%;
+}
+
+.Main {
+  display: flex;
+  width: 100%;
+  margin: 5% auto 0px auto;
+  .ImgContainer {
+    flex: 1;
+    width: 100%;
+  }
+  .ImageContainer {
+    margin: 0px auto;
+    width: 100%;
+  }
+  .TextContainer {
+    flex: 2;
+    margin: 0px 1.5%;
+    width: 100%;
+  }
+  .Btn {
+    width: fit-content;
+    padding: 10px;
+    margin: 2px 20px;
+    border-radius: 7px;
+    border: none;
+    background-color: wheat;
+    // box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.3);
+  }
+  .Btn:hover {
+    background-color: rgb(247, 225, 184);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.3);
+  }
+  .InfoContainer {
+    margin-top: 10px;
+    display: flex;
+    .line {
+      letter-spacing: -3px;
+      font-size: 12px;
+      margin: auto 10px auto auto;
+    }
+    .src {
+      margin: auto 5px auto 7px;
+      font-size: 12px;
+    }
+  }
+}
+
+@media only screen and (max-width: 820px) {
+  .Main {
+    flex-direction: column;
+  }
+  .line {
+    display: none;
+  }
+  .src {
+    display: none;
+  }
+  .backbtn {
+    border: 0px none;
+    border-radius: 50%;
+    margin: 20px 0px 0px 40px;
+    // padding: 10px;
+    width: 40px;
+    height: 40px;
+    background-color: wheat;
+    .backbtnimg {
+      margin: 2px;
+      margin-left: -5px;
+    }
+  }
+}

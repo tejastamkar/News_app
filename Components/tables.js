@@ -1,19 +1,9 @@
 // import { Data } from "../Data/Data";
 import styles from "../styles/tables.module.scss";
 import { useState, useEffect } from "react";
-import { db } from "../Firebase";
-import { collection, getDocs } from "firebase/firestore";
+import { getDataBase } from "../Helper/getData";
 
-async function getDataBase({ Data, setMyLoader, DBName }) {
-  await getDocs(collection(db, DBName)).then(async (snapshort) => {
-    snapshort.docs.forEach((doc) => {
-      Data.push({ ...doc.data(), id: doc.id });
-      setMyLoader(false);
-    });
-  });
 
-  return { Data, setMyLoader };
-}
 
 export default function Tables({ TableIndex }) {
   switch (TableIndex) {
@@ -22,11 +12,9 @@ export default function Tables({ TableIndex }) {
     case 2:
       return AllArticleTable("Weather");
     case 3:
-      return AllArticleTable("test");
+      return AllArticleTable("testing");
     case 4:
       return AllArticleTable("News");
-    case 5:
-      return Podcast();
     default:
       return <div>No table found</div>;
   }
@@ -36,17 +24,16 @@ function AllArticleTable(DBName) {
   var [Data, setData] = useState([]);
   useEffect(() => {
     async function getData() {
-      setData(Data = []);
-      const data = await getDataBase({ Data, setMyLoader, DBName });
+      setData((Data = []));
+      var data = await getDataBase({ Data, setMyLoader, DBName });
       setData(data.Data);
       setMyLoader(data.setMyLoader);
       setMyLoader(true);
-  
     }
     getData();
-  }, []);
+  }, [DBName]);
   return MyLoader ? (
-    <div class={styles.my}>
+    <div className={styles.my}>
       <table className={styles.Table}>
         <thead className={styles.tableHead}>
           <tr>
@@ -77,29 +64,3 @@ function AllArticleTable(DBName) {
   );
 }
 
-function Podcast() {
-  return (
-    <div>
-      <table>
-        <thead>
-          <tr>
-            <th>ID</th>
-            <th>Name</th>
-            <th>Image</th>
-            <th>Url</th>
-          </tr>
-        </thead>
-        <tbody>
-          {Data.map((data, index) => (
-            <tr key={index}>
-              <td>{data.id}</td>
-              <td>{data.name}</td>
-              <td>{data.class}</td>
-              <td>{data.title}</td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
-    </div>
-  );
-}

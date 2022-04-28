@@ -1,6 +1,9 @@
 module.exports = {
   reactStrictMode: true,
+};
+
+module.exports = {
   images: {
-    loader: "custom",
+    domains: ["firebasestorage.googleapis.com", "images.unsplash.com"],
   },
 };

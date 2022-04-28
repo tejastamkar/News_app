@@ -1,0 +1,51 @@
+// css for Title Component
+.Main {
+  width: 100%;
+  margin: 3px auto;
+  border-top: 1px solid black;
+  border-bottom: 1px solid black;
+}
+.title {
+  display: flex;
+  font-family: Gabriola;
+  // padding: -1%;
+  .name {
+    // flex: 5;
+    font-size: 40px;
+    font-weight: 400;
+    // margin: -1%;
+    // height: 30px;
+    align-items: center;
+    margin: auto auto auto 30px;
+  }
+  .btn {
+    // flex: 1;
+    font-size: 20px;
+    justify-content: left;
+    align-items: center;
+    margin: auto 50px auto auto;
+    color: black;
+    // position: absolute;
+  }
+}
+
+// css for details
+.details {
+  display: flex;
+  width: 100%;
+  margin: 10px 0px;
+  .date {
+    flex: 1;
+    font-size: 12px;
+    margin: 0px 5px;
+  }
+  .line {
+    letter-spacing: -3px;
+    font-size: 12px;
+    margin: auto auto auto 10px;
+  }
+  .src {
+    margin: auto 5px auto 7px;
+    font-size: 12px;
+  }
+}

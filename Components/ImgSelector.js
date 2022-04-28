@@ -2,7 +2,7 @@
 /* eslint-disable jsx-a11y/alt-text */
 import { useState } from "react";
 import styles from "../styles/Import.module.scss";
-
+// import {noImage} from '../public/laptop.png'
 import {
   getStorage,
   ref,
@@ -94,6 +94,7 @@ export default function ImgSelector() {
   const ImageJSX = () => (
     <div className={styles.card}>
       <img id="myimg" src={ImageSrc} className={styles.img} />
+      {/* <img  src={noImage} className={styles.img} /> */}
 
       <div className={styles.input}>
         <label>Folder Name: </label>

@@ -12,6 +12,8 @@ import { db } from "../Firebase";
 import { useEffect } from "react";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
+import {BsClipboardCheck} from 'react-icons/bs'
+import ImgSelector from './ImgSelector';
 
 // export function GetImageUrl(url) {
 //   const [imageurl, setimageurl] = useState("");
@@ -19,54 +21,55 @@ import "react-datepicker/dist/react-datepicker.css";
 //   return imageurl;
 // }
 
-export default function Info({ ImgUrl }) {
+export default function Info({ ImgUrl })  {
   // Inputbox varables
   const [Collection, setCollection] = useState("");
   const [Name, setName] = useState("");
   const [Title, setTitle] = useState("");
   const [Url, setUrl] = useState("");
   const [ImageUrl, setImageUrl] = useState("");
+  const [TempImageUrl, setTempImageUrl] = useState("");
   const [Desc, setDesc] = useState("");
-  const [Category, setCategory] = useState("");
-  const [DocDate, setDocDate] = useState("");
+  const [Src, setSrc] = useState("");
+  const [DocDate, setDocDate] = useState();
   const [UploadStatus, setUploadStatus] = useState("Ready to Upload Data");
-  // useEffect(() => {
-  //   setImageUrl(Imageurl);
-  // }, [Imageurl]);
+  
 
   useEffect(() => {
     setImageUrl(ImgUrl);
+    setTempImageUrl(ImgUrl);
   }, [ImgUrl]);
   const ClearAll = () => {
     setCollection("");
-    setName("");
+    setName("");  
     setTitle("");
     setUrl("");
     setImageUrl("");
     setDesc("");
-    setCategory("");
+    setSrc("");
     setDocDate("");
     setUploadStatus("Ready to Upload Data");
   };
 
-  // const getDate = () => {
-  //   splits = DocDate.split(" ", 3);
-  //   console.log(slipts);
-  // };
+  const getDate = () => {
+   let temp = document.getElementById('DatePicker');
+    return temp.value
+  };
   async function UploadData() {
-    // getDate();
-    console.log(DocDate);
+    let date = getDate();
+    console.log(date)
     if (!Collection) {
       setUploadStatus("Enter Proper Data");
     } else {
       const ref = collection(db, Collection);
       await addDoc(ref, {
-        Name: Name,
-        Title: Title,
-        Url: Url,
-        ImageUrl: ImageUrl,
-        Description: Desc,
-        Category: Category,
+        name: Name,
+        title: Title,
+        url: Url,
+        imageUrl: ImageUrl,
+        description: Desc,
+        src: Src,
+        date: date,
       });
       setUploadStatus("The Data is Uploaded");
     }
@@ -107,7 +110,9 @@ export default function Info({ ImgUrl }) {
           type="text"
           value={ImageUrl}
           onInput={(e) => setImageUrl(e.target.value)}
-        />{" "}
+        />
+        
+        <BsClipboardCheck className={styles.clipboard}/>
         <br />
         <label>Description: </label>
         <input
@@ -116,15 +121,15 @@ export default function Info({ ImgUrl }) {
           onInput={(e) => setDesc(e.target.value)}
         />{" "}
         <br />
-        <label>Category: </label>
+        <label>Src: </label>
         <input
           type="text"
-          value={Category}
-          onInput={(e) => setCategory(e.target.value)}
+          value={Src}
+          onInput={(e) => setSrc(e.target.value)}
         />{" "}
         <br />
         <label>Date:</label>
-        <DatePicker selected={DocDate} onChange={(date) => setDocDate(date)} />
+        <DatePicker id="DatePicker" selected={DocDate} onChange={(date) => setDocDate(date)}  dateFormat='dd MMM'/>
       </div>
       <div className={styles.btn}>
         <button id="upbtn" onClick={() => UploadData()}>
