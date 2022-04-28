@@ -7,7 +7,7 @@ export default function Footer() {
     <footer className={styles.footer}>
       <div className={styles.footer_Items}>
         <div className={styles.footer_logo}>
-          <Image src={Logo} layout={"fixed"} width={50} height={50}></Image>
+          <Image src={Logo} layout={"fixed"} width={50} height={50} />
         </div>
         <div className={styles.footer_text}>
           <p>@2022 Janan</p>

@@ -11,7 +11,7 @@ export default function MainTopnews({ data }) {
 
   return (
     <div className={styles.TopNews}>
-      <Link href={`/docs/news/${data[0].id}`}>
+      <Link href={`/docs/${data[0].category}/${data[0].id}`}>
         <a className={styles.Main}>
           <div className={styles.ImageContainer}>
             <img
@@ -21,7 +21,7 @@ export default function MainTopnews({ data }) {
               height={"500"}
               layout="intrinsic"
               object-fit="cover"
-              src={data[0].url}
+              src={data[0].imageUrl}
             />
             <Details date={data[0].date} src={data[0].src} />
           </div>
@@ -34,16 +34,16 @@ export default function MainTopnews({ data }) {
         </a>
       </Link>
       <div className={styles.BigCard}>
-        <Link href={`/docs/news/${data[1].id}`}>
+        <Link href={`/docs/${data[1].category}/${data[1].id}`}>
           <a className={styles.News}>
             <div className={styles.ImageContainer}>
               <Image
                 className={styles.Image}
                 alt="Image"
-                width={"1000px"}
-                height={"150px"}
+                width={1000}
+                height={150}
                 layout="fixed"
-                src={data[1].url}
+                src={data[1].imageUrl}
               />
             </div>
             <div className={styles.heading}>
@@ -52,16 +52,16 @@ export default function MainTopnews({ data }) {
             </div>
           </a>
         </Link>
-        <Link href={`/docs/news/${data[2].id}`}>
+        <Link href={`/docs/${data[2].category}/${data[2].id}`}>
           <a className={styles.News}>
             <div className={styles.ImageContainer}>
               <Image
                 className={styles.Image}
                 alt="Image"
-                width={"1000px"}
-                height={"150px"}
+                width={1000}
+                height={150}
                 layout="fixed"
-                src={data[2].url}
+                src={data[2].imageUrl}
               />
             </div>
             <div className={styles.heading}>

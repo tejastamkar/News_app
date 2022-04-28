@@ -9,7 +9,7 @@ import Footer from "../Components/Footer";
 import { useEffect, useState } from 'react';
 import { RecRef, GetData } from "../Helper/Recommand";
 import { async } from "@firebase/util";
-export default function Home({ News, Books }) {
+export default function Home({ News, Books, Article, Magzine }) {
   var [MainTopdata, setMainTopdata] = useState([]);
   const [Loader, setLoader] = useState(true);
   useEffect(() => {
@@ -17,7 +17,7 @@ export default function Home({ News, Books }) {
     if (MainTopdata.length >= 2) {
       setLoader(false)
     } else {
-      setMainTopdata(GetData({ News, Books }))
+      setMainTopdata(GetData({ News, Books, Article, Magzine }))
       setLoader(true)
     }
 
@@ -26,6 +26,9 @@ export default function Home({ News, Books }) {
 
   const NewsItems = News.slice(1);
   Books = Books.slice(0, 4);
+  Article = Article.slice(0, 4);
+  Magzine = Magzine.slice(0, 4);
+
   return Loader ? (<div>Loading..</div>) : (
     <div>
       <Head>
@@ -35,16 +38,16 @@ export default function Home({ News, Books }) {
       </Head>
       <Navbar main={true} />
       <div id="Top">
-        <Title Name={"Top News"} />
+        <Title Name={"Top Recommand For You"} />
         <MainTopnews data={MainTopdata} />
         <Title Name={"News"} />
         <Cards data={NewsItems} Items={"News"} />
         <Title Name={"Magazine"} />
-        <Cards data={Books} Items={"Magazine"} />
+        <Cards data={Magzine} Items={"Magazine"} />
         <Title Name={"Books"} />
         <Cards data={Books} Items={"books"} />
         <Title Name={"Articles"} />
-        <Cards data={Books} Items={"books"} />
+        <Cards data={Article} Items={"Articles"} />
         <Footer />
       </div>
     </div>
@@ -54,6 +57,8 @@ export default function Home({ News, Books }) {
 export const getStaticProps = async () => {
   const News = [];
   const Books = [];
+  const Article = [];
+  const Magzine = [];
 
   await getDocs(collection(db, "testing")).then(async (snapshort) => {
     snapshort.docs.forEach((doc) => {
@@ -65,11 +70,23 @@ export const getStaticProps = async () => {
       Books.push({ ...doc.data(), id: doc.id });
     });
   });
+  await getDocs(collection(db, "Articles")).then(async (snapshort) => {
+    snapshort.docs.forEach((doc) => {
+      Article.push({ ...doc.data(), id: doc.id });
+    });
+  });
+  await getDocs(collection(db, "Magzines")).then(async (snapshort) => {
+    snapshort.docs.forEach((doc) => {
+      Magzine.push({ ...doc.data(), id: doc.id });
+    });
+  });
   // const MainTopdata = News.slice(0, 3)
   return {
     props: {
       News,
       Books,
+      Magzine,
+      Article
 
     },
   };

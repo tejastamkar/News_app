@@ -17,7 +17,7 @@ export default function PageContain({ Data, name }) {
       <div className={styles.Main}>
         <div className={styles.ImgContainer}>
           <div className={styles.ImageContainer}>
-            <Image src={Data[0].url} width={900} height={500} />
+            <Image src={Data[0].imageUrl} width={900} height={500} />
           </div>
           <div className={styles.InfoContainer}>
             <button className={styles.Btn}>Read More</button>
@@ -42,16 +42,13 @@ export default function PageContain({ Data, name }) {
         <div className={styles.ImgContainer}>
           <div className={styles.ImageContainer_Mage}>
             <Image
-              src={
-                Data[0].url
-                // "https://firebasestorage.googleapis.com/v0/b/de-weadar.appspot.com/o/img%2FRDayParade.jfif?alt=media&token=61970e57-26e3-4115-b164-5b93b4a3626f"
-              }
+              src={Data[0].imageUrl}
               width={400}
               height={600}
             />
           </div>
           <div className={styles.InfoContainer}>
-            <button className={styles.Btn}>Read More</button>
+            <button className={styles.Btn} onClick={() => { window.location.href = 'https://ide.geeksforgeeks.org' }}>Read More</button>
             <p className={styles.line}>---------</p>
             <p className={styles.src}>{Data[0].src}</p>
           </div>

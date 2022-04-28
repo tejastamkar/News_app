@@ -20,7 +20,7 @@ export default function Cards({ Items, data }) {
     return (
       <div className={styles.all__Cards}>
         {data.map((data, index) => (
-          <Books key={index} data={data} />
+          <Magzine key={index} data={data} />
         ))}
       </div>
     );
@@ -38,7 +38,7 @@ export default function Cards({ Items, data }) {
     return (
       <div className={styles.all__Cards}>
         {data.map((data, index) => (
-          <Books key={index} data={data} />
+          <Article key={index} data={data} />
         ))}
       </div>
     );
@@ -55,7 +55,7 @@ function News({ data }) {
         <div className={styles.ImageContainer}>
           <Image
             className={styles.Image}
-            src={data.url}
+            src={data.imageUrl}
             width={1000}
             height={700}
             alt="newImage"
@@ -76,7 +76,49 @@ function Books({ data }) {
         <div className={styles.ImageContainer}>
           <Image
             className={styles.Image}
-            src={data.url}
+            src={data.imageUrl}
+            width={700}
+            height={1000}
+            alt="newImage"
+          />
+          <Details date={data.date} src={data.src} />
+        </div>
+        <p className={styles.Tiles}>{data.name}</p>
+      </a>
+    </Link>
+  );
+}
+function Article({ data }) {
+  return (
+    <Link href={`/docs/article/${data.id}`}>
+      <a className={styles.Card} onClick={() => {
+        Recommanded(data.category)
+      }}>
+        <div className={styles.ImageContainer}>
+          <Image
+            className={styles.Image}
+            src={data.imageUrl}
+            width={700}
+            height={1000}
+            alt="newImage"
+          />
+          <Details date={data.date} src={data.src} />
+        </div>
+        <p className={styles.Tiles}>{data.name}</p>
+      </a>
+    </Link>
+  );
+}
+function Magzine({ data }) {
+  return (
+    <Link href={`/docs/magzine/${data.id}`}>
+      <a className={styles.Card} onClick={() => {
+        Recommanded(data.category)
+      }}>
+        <div className={styles.ImageContainer}>
+          <Image
+            className={styles.Image}
+            src={data.imageUrl}
             width={700}
             height={1000}
             alt="newImage"

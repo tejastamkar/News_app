@@ -37,15 +37,17 @@ function getDB(props) {
       Dbname = "testing";
       break;
     case "magazine":
+    case "magzine":
     case "Magazine":
+    case "Magzine":
       Name = "Magazine";
-      Dbname = "book testing";
+      Dbname = "Magzines";
       break;
     case "Articles":
     case "article":
     case "Articles":
       Name = "Articles";
-      Dbname = "book testing";
+      Dbname = "Articles";
       break;
     default:
       Dbname = "Temp";
